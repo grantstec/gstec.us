@@ -1,32 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grant Stec's Website</title>
-</head>
-<body>
-    <script type="module" src="https://unpkg.com/@splinetool/viewer/build/spline-viewer.js"></script>
-    <spline-viewer url="https://prod.spline.design/UWoeqiir20o49Dah/scene.splinecode"></spline-viewer>
-<div style="width: 100vw; height: 100vh; position: relative; background: white">
-    <div style="left: 31px; top: 165px; position: absolute; justify-content: center; align-items: center; display: inline-flex">
-      <div style="color: #0037FF; font-size: 96px; font-family: PCap Terminal; font-weight: 400; word-wrap: break-word">BLUE HORIZON</div>
-    </div>
-    <div style="left: 15px; top: 275px; position: absolute; color: #0037FF; font-size: 24px; font-family: PCap Terminal; font-weight: 400; word-wrap: break-word">  USAFA Collegiate Rocketry Club</div>
-    <div style="width: 1440px; height: 114px; left: 0px; top: 0px; position: absolute">
-      <img style="width: 40px; height: 40px; left: 33px; top: 37px; position: absolute" src="BHlogosmall.png" />
-      <div style="left: 124px; top: 47.50px; position: absolute; color: #292929; font-size: 16px; font-family: PCap Terminal; font-weight: 400; word-wrap: break-word">TEAM CALENDAR</div>
-      <div style="left: 318.87px; top: 47.50px; position: absolute; color: #292929; font-size: 16px; font-family: PCap Terminal; font-weight: 400; word-wrap: break-word">ENGINE</div>
-      <div style="left: 424px; top: 48px; position: absolute; color: #292929; font-size: 16px; font-family: PCap Terminal; font-weight: 400; word-wrap: break-word">GSE</div>
-      <div style="left: 503px; top: 48px; position: absolute; color: #292929; font-size: 16px; font-family: PCap Terminal; font-weight: 400; word-wrap: break-word">AIRFRAME</div>
-      <div style="left: 636px; top: 48px; position: absolute; color: #292929; font-size: 16px; font-family: PCap Terminal; font-weight: 400; word-wrap: break-word">SAFTEY </div>
-      <div style="left: 752px; top: 48px; position: absolute; color: #292929; font-size: 16px; font-family: PCap Terminal; font-weight: 400; word-wrap: break-word">ADMIN</div>
-      <div style="left: 848px; top: 48px; position: absolute; color: #292929; font-size: 16px; font-family: PCap Terminal; font-weight: 400; word-wrap: break-word">REASEARCH</div>
-      <div style="width: 83px; height: 37px; left: 1273px; top: 38px; position: absolute; border-radius: 10px; border: 3px #292929 solid"></div>
-      <div style="left: 1285.50px; top: 47.50px; position: absolute; color: #292929; font-size: 16px; font-family: PCap Terminal; font-weight: 400; word-wrap: break-word">SIGN IN</div>
-      <div style="left: 1000px; top: 48px; position: absolute; color: #292929; font-size: 16px; font-family: PCap Terminal; font-weight: 400; word-wrap: break-word">REASOURCES</div>
-    </div>
-    <img style="width: 483px; height: 523px; left: 38px; top: 446px; position: absolute;" src="BHlogolarge.png" />
-  </div>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>BlueHorizon</title>
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=PCap+Terminal&display=swap">
+        <link rel="icon" href="BHlogosmall.png" type="image/x-icon">
+
+    </head>
+    <body>
+        <script type="module"
+            src="https://unpkg.com/@splinetool/viewer@1.8.9/build/spline-viewer.js"></script>
+        <spline-viewer
+            url="https://prod.spline.design/cr1dAjyDvpIqqmoJ/scene.splinecode" background="white" events-target="global"
+            style="width: 50vw; height: 45vw; position: absolute; left: 30vw; top: 15vh;"
+        ></spline-viewer>
+    </body>
+    <script>
+        window.onload = function() {
+            var shadowRoot = document.querySelector('spline-viewer').shadowRoot;
+            shadowRoot.querySelector('#logo').remove();
+        }
+    </script>
 </html>
