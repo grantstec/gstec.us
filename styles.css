@@ -1,0 +1,74 @@
+html,
+body{
+   width: 100%;
+   height: 100%;
+   overflow: hidden;
+   margin: 0;
+}
+
+.logo {
+  background: url(BHlogolarge.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  
+}
+/* Navigation Bar Styling */
+.navbar {
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.nav-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  display: inline-block;
+  padding: 2vh 2vw;
+}
+
+.nav-links li a {
+  color: #000000;
+  text-decoration: none;
+  font-size: 1.2em;
+  font-family: "PCAP terminal";
+}
+
+/* Hover effect for links
+.nav-links li:hover a {
+  color: #00aaff;
+} */
+
+/* Sign-in Button Styling */
+.sign-in-btn {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 10px 20px;
+  border-style: solid;
+  border-width: 5px;
+  border-color: #292929;
+  cursor: pointer;
+  z-index: 1;
+  position: static;
+}
+
+/* .sign-in-btn:hover {
+  background-color: #006aff;
+} */
+
+
+.spline-viewer{
+    width: 60vw;
+    position: absolute;
+    left: 30vw; 
+    top: 100px;
+    z-index: 0;
+}
+

@@ -10,13 +10,25 @@
         <link rel="icon" href="BHlogosmall.png" type="image/x-icon">
 
     </head>
+    <script type="module"
+    src="https://unpkg.com/@splinetool/viewer@1.8.9/build/spline-viewer.js"></script>
+    <spline-viewer class="spline-viewer"
+    url="https://prod.spline.design/cr1dAjyDvpIqqmoJ/scene.splinecode"
+    background="white"></spline-viewer>
     <body>
-        <script type="module"
-            src="https://unpkg.com/@splinetool/viewer@1.8.9/build/spline-viewer.js"></script>
-        <spline-viewer
-            url="https://prod.spline.design/cr1dAjyDvpIqqmoJ/scene.splinecode" background="white" events-target="global"
-            style="width: 50vw; height: 45vw; position: absolute; left: 30vw; top: 15vh;"
-        ></spline-viewer>
+        <nav class="navbar">
+            <a href="/" class="logo"></a>
+            <ul class="nav-links">
+              <li><a href="#">TEAM CALENDAR</a></li>
+              <li><a href="#">ENGINE</a></li>
+              <li><a href="#">AIRFRAME</a></li>
+              <li><a href="#">SAFETY</a></li>
+              <li><a href="#">ADMIN</a></li>
+              <li><a href="#">RESEARCH</a></li>
+              <li><a href="#">RESOURCES</a></li>
+              <li><a href="#" class="sign-in-btn">SIGN IN</a></li>
+            </ul>
+          </nav>
     </body>
     <script>
         window.onload = function() {
