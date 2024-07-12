@@ -4,71 +4,94 @@ body{
    height: 100%;
    overflow: hidden;
    margin: 0;
+   background-color: #292929;
 }
 
-.logo {
+/* .logo {
   background: url(BHlogolarge.png);
   background-size: contain;
   background-repeat: no-repeat;
-  width: 50px;
-  height: 50px;
-  display: inline-block;
+  width: 5vw;
+  height: 5vh;
+  position: relative;
+  padding-right: 4vw;
   
-}
+} */
+
+
 /* Navigation Bar Styling */
 .navbar {
-  background-color: #ffffff;
+  background-color: #292929;
   display: flex;
   align-items: center;
-  padding: 10px 20px;
+  position: relative;
+  /* padding: 10px 20px; */
+  left: 1vw;
+  top: 3vh;
 }
 
 .nav-links {
   list-style: none;
   margin: 0;
-  padding: 0;
 }
 
 .nav-links li {
   display: inline-block;
-  padding: 2vh 2vw;
+  position: relative;
+  padding-right: 2vw;
+  padding-top: 2vh;
+ 
 }
 
 .nav-links li a {
-  color: #000000;
+  color: #ffffff;
   text-decoration: none;
-  font-size: 1.2em;
+  font-size: calc(0.75vw + 10px);
+  letter-spacing: 0.25vw;
+  font-size-adjust: cap-hieght;
   font-family: "PCAP terminal";
 }
 
-/* Hover effect for links
+/* Hover effect for links */
 .nav-links li:hover a {
-  color: #00aaff;
-} */
+  color: #0037FF; 
+}
 
 /* Sign-in Button Styling */
 .sign-in-btn {
-  background-color: #ffffff;
   border-radius: 10px;
   padding: 10px 20px;
   border-style: solid;
   border-width: 5px;
-  border-color: #292929;
-  cursor: pointer;
+  border-color: #ffffff;
+  cursor: pointergb(255, 255, 255)
   z-index: 1;
   position: static;
 }
 
-/* .sign-in-btn:hover {
-  background-color: #006aff;
-} */
+.sign-in-btn:hover {
+  border-color: #0037FF;
+}
 
+h1 {
+  color:#0037FF;
+  position: relative;
+  left: 4vw;
+  top: 2vh;
+  font-size: calc(96px + 2vw);
+  font-family: "PCAP terminal";
+  letter-spacing: 0.2vw;
+  font-weight: 30;
+}
 
-.spline-viewer{
+/* .spline-viewer{
     width: 60vw;
     position: absolute;
     left: 30vw; 
     top: 100px;
     z-index: 0;
-}
+} */
 
+.spline-container{
+  height: 30vw;
+}

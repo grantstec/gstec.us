@@ -10,14 +10,9 @@
         <link rel="icon" href="BHlogosmall.png" type="image/x-icon">
 
     </head>
-    <script type="module"
-    src="https://unpkg.com/@splinetool/viewer@1.8.9/build/spline-viewer.js"></script>
-    <spline-viewer class="spline-viewer"
-    url="https://prod.spline.design/cr1dAjyDvpIqqmoJ/scene.splinecode"
-    background="white"></spline-viewer>
     <body>
         <nav class="navbar">
-            <a href="/" class="logo"></a>
+            <!-- <a href="/" class="logo"></a> -->
             <ul class="nav-links">
               <li><a href="#">TEAM CALENDAR</a></li>
               <li><a href="#">ENGINE</a></li>
@@ -29,7 +24,18 @@
               <li><a href="#" class="sign-in-btn">SIGN IN</a></li>
             </ul>
           </nav>
+        <span>
+            <h1>BLUE HORIZON</h1>
+        </span>
+        <div class="spline-container">
+            <script type="module"
+                src="https://unpkg.com/@splinetool/viewer@1.8.9/build/spline-viewer.js"></script>
+            <spline-viewer class="spline-viewer"
+                url="https://prod.spline.design/cr1dAjyDvpIqqmoJ/scene.splinecode"
+                background="#292929"></spline-viewer>
+        </div>
     </body>
+
     <script>
         window.onload = function() {
             var shadowRoot = document.querySelector('spline-viewer').shadowRoot;
