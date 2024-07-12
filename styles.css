@@ -93,5 +93,7 @@ h1 {
 } */
 
 .spline-container{
-  height: 30vw;
+  height: 40vw;
+  position: relative;
+  right: 25vw
 }
