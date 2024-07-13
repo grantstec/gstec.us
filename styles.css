@@ -7,6 +7,15 @@ body{
    background-color: #292929;
 }
 
+@font-face {
+  font-family: "PCap Terminal";
+  src: url("https://db.onlinewebfonts.com/t/d8d28220e3feff1ea3321de5ee9ce96c.eot");
+  src: url("https://db.onlinewebfonts.com/t/d8d28220e3feff1ea3321de5ee9ce96c.eot?#iefix")format("embedded-opentype"),
+  url("https://db.onlinewebfonts.com/t/d8d28220e3feff1ea3321de5ee9ce96c.woff2")format("woff2"),
+  url("https://db.onlinewebfonts.com/t/d8d28220e3feff1ea3321de5ee9ce96c.woff")format("woff"),
+  url("https://db.onlinewebfonts.com/t/d8d28220e3feff1ea3321de5ee9ce96c.ttf")format("truetype"),
+  url("https://db.onlinewebfonts.com/t/d8d28220e3feff1ea3321de5ee9ce96c.svg#PCap Terminal")format("svg");
+}
 
 
 
