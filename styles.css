@@ -7,6 +7,12 @@ body{
    background-color: #292929;
 }
 
+/* @font-face {
+  font-family: "PCAP terminal";
+  src: url(http://www.princexml.com/fonts/larabie/kimberle.ttf) format("truetype");
+} */
+
+
 /* .logo {
   background: url(BHlogolarge.png);
   background-size: contain;
@@ -49,7 +55,7 @@ body{
   font-size: calc(0.75vw + 10px);
   letter-spacing: 0.25vw;
   font-size-adjust: cap-hieght;
-  font-family: "PCAP terminal";
+  font-family: "PCap Terminal";
 }
 
 /* Hover effect for links */
@@ -64,9 +70,8 @@ body{
   border-style: solid;
   border-width: 5px;
   border-color: #ffffff;
-  cursor: pointergb(255, 255, 255)
+  cursor: pointergb(255, 255, 255);
   z-index: 1;
-  position: static;
 }
 
 .sign-in-btn:hover {
@@ -79,7 +84,7 @@ h1 {
   left: 4vw;
   top: 2vh;
   font-size: calc(96px + 2vw);
-  font-family: "PCAP terminal";
+  font-family: "PCap Terminal";
   letter-spacing: 0.2vw;
   font-weight: 30;
 }
