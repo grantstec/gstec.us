@@ -7,10 +7,7 @@ body{
    background-color: #292929;
 }
 
-@font-face {
-  font-family: "PCap Terminal";
-  src: url(https://c.webfontfree.com/c.js?f=PCapTerminal) format("text/javascript");
-}
+
 
 
 /* .logo {
