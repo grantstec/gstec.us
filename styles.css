@@ -90,11 +90,11 @@ h2 {
 
 
 .spline-container{
-  height: 40vh;
-  width: 30vw;
-  position: relative;
-  top: 10vh;
-  left: 10vw;
+  height: 50vh;
+  width: 50vw;
+  position: absolute;
+  top: 25vh;
+  left: 25vw;
 }
 /* 
 /* Extra small devices (phones, 600px and down) */
