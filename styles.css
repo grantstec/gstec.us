@@ -17,28 +17,11 @@ body{
   url("https://db.onlinewebfonts.com/t/d8d28220e3feff1ea3321de5ee9ce96c.svg#PCap Terminal")format("svg");
 }
 
-
-
-/* .logo {
-  background: url(BHlogolarge.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-  width: 5vw;
-  height: 5vh;
-  position: relative;
-  padding-right: 4vw;
-  
-} */
-
-
 /* Navigation Bar Styling */
 .navbar {
   background-color: #292929;
-  display: flex;
-  align-items: center;
   position: relative;
-  /* padding: 10px 20px; */
-  left: 1vw;
+  left: -20px;
   top: 3vh;
 }
 
@@ -58,7 +41,7 @@ body{
 .nav-links li a {
   color: #ffffff;
   text-decoration: none;
-  font-size: calc(0.75vw + 10px);
+  font-size: 10px;
   letter-spacing: 0.25vw;
   font-size-adjust: cap-hieght;
   font-family: "PCap Terminal";
@@ -87,11 +70,21 @@ body{
 h1 {
   color:#0037FF;
   position: relative;
-  left: 4vw;
+  left: 20px;
   top: 2vh;
-  font-size: calc(96px + 2vw);
+  font-size: 48;
   font-family: "PCap Terminal";
   letter-spacing: 0.2vw;
+  font-weight: 30;
+}
+
+h2 {
+  color:#0037FF;
+  position: relative;
+  left: 20px;
+  font-size: 14px;
+  font-family: "PCap Terminal";
+  letter-spacing: 0.2px;
   font-weight: 30;
 }
 
@@ -103,3 +96,21 @@ h1 {
   top: 10vh;
   left: 10vw
 }
+/* 
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {...}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {...}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {...}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {...}
+ */
