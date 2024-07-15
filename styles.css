@@ -1,21 +1,35 @@
 html,
-body {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  margin: 0;
-  background-color: #292929;
+body{
+   width: 100%;
+   height: 100%;
+   overflow: hidden;
+   margin: 0;
+   background-color: #292929;
 }
 
 @font-face {
   font-family: "PCap Terminal";
   src: url("https://db.onlinewebfonts.com/t/d8d28220e3feff1ea3321de5ee9ce96c.eot");
-  src: url("https://db.onlinewebfonts.com/t/d8d28220e3feff1ea3321de5ee9ce96c.eot?#iefix") format("embedded-opentype"),
-    url("https://db.onlinewebfonts.com/t/d8d28220e3feff1ea3321de5ee9ce96c.woff2") format("woff2"),
-    url("https://db.onlinewebfonts.com/t/d8d28220e3feff1ea3321de5ee9ce96c.woff") format("woff"),
-    url("https://db.onlinewebfonts.com/t/d8d28220e3feff1ea3321de5ee9ce96c.ttf") format("truetype"),
-    url("https://db.onlinewebfonts.com/t/d8d28220e3feff1ea3321de5ee9ce96c.svg#PCap Terminal") format("svg");
+  src: url("https://db.onlinewebfonts.com/t/d8d28220e3feff1ea3321de5ee9ce96c.eot?#iefix")format("embedded-opentype"),
+  url("https://db.onlinewebfonts.com/t/d8d28220e3feff1ea3321de5ee9ce96c.woff2")format("woff2"),
+  url("https://db.onlinewebfonts.com/t/d8d28220e3feff1ea3321de5ee9ce96c.woff")format("woff"),
+  url("https://db.onlinewebfonts.com/t/d8d28220e3feff1ea3321de5ee9ce96c.ttf")format("truetype"),
+  url("https://db.onlinewebfonts.com/t/d8d28220e3feff1ea3321de5ee9ce96c.svg#PCap Terminal")format("svg");
 }
+
+
+
+/* .logo {
+  background: url(BHlogolarge.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 5vw;
+  height: 5vh;
+  position: relative;
+  padding-right: 4vw;
+  
+} */
+
 
 /* Navigation Bar Styling */
 .navbar {
@@ -23,6 +37,7 @@ body {
   display: flex;
   align-items: center;
   position: relative;
+  /* padding: 10px 20px; */
   left: 1vw;
   top: 3vh;
 }
@@ -30,14 +45,14 @@ body {
 .nav-links {
   list-style: none;
   margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: space-between;
 }
 
 .nav-links li {
   display: inline-block;
-  padding: 1vh 1vw;
+  position: relative;
+  padding-right: 2vw;
+  padding-top: 2vh;
+ 
 }
 
 .nav-links li a {
@@ -45,13 +60,13 @@ body {
   text-decoration: none;
   font-size: calc(0.75vw + 10px);
   letter-spacing: 0.25vw;
-  font-size-adjust: cap-height;
+  font-size-adjust: cap-hieght;
   font-family: "PCap Terminal";
 }
 
 /* Hover effect for links */
 .nav-links li:hover a {
-  color: #0037FF;
+  color: #0037FF; 
 }
 
 /* Sign-in Button Styling */
@@ -61,90 +76,30 @@ body {
   border-style: solid;
   border-width: 5px;
   border-color: #ffffff;
-  cursor: pointer;
+  cursor: pointergb(255, 255, 255);
   z-index: 1;
 }
 
 .sign-in-btn:hover {
-  border-color: #0037FF; /* Hover effect for better user interaction */
+  border-color: #0037FF;
 }
 
 h1 {
-  color: #0037FF; /* Ensuring good contrast for accessibility */
+  color:#0037FF;
   position: relative;
   left: 4vw;
   top: 2vh;
-  font-size: calc(96px + 2vw); /* Responsive font size */
-  font-family: "PCap Terminal", monospace; /* Fallback font for better accessibility */
+  font-size: calc(96px + 2vw);
+  font-family: "PCap Terminal";
   letter-spacing: 0.2vw;
-  font-weight: 400; /* Corrected font weight for standard readability */
+  font-weight: 30;
 }
 
-.spline-container {
+
+.spline-container{
   height: 40vw;
-  min-height: 600px; /* Ensuring a minimum height for content visibility */
+  min-height: 600px;
   position: relative;
   top: -5vh;
-  right: 5%; /* Changed from em to % for consistency in positioning */
-}
-
-/* Media Queries */
-@media screen and (max-width: 1200px) {
-  /* Styles for screens with a maximum width of 1200px */
-  h1 {
-    font-size: calc(48px + 2vw); /* Adjusted font size for smaller screens */
-    left: 3vw;
-    top: 1vh;
-  }
-
-  .spline-container {
-    height: 50vw; /* Adjusted for better aspect ratio on smaller screens */
-    min-height: 500px; /* Lowered min-height for smaller screens */
-    right: 5%; /* Consistent positioning with larger screens */
-  }
-}
-
-@media screen and (max-width: 992px) {
-  /* Styles for screens with a maximum width of 992px */
-  h1 {
-    font-size: calc(36px + 2vw);
-    left: 2vw;
-    top: 1vh;
-  }
-
-  .spline-container {
-    height: 60vw;
-    min-height: 400px;
-    right: 7em;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  /* Styles for screens with a maximum width of 768px */
-  h1 {
-    font-size: calc(24px + 2vw);
-    left: 2vw;
-    top: 1vh;
-  }
-
-  .spline-container {
-    height: 70vw;
-    min-height: 300px;
-    right: 5em;
-  }
-}
-
-@media screen and (max-width: 576px) {
-  /* Styles for screens with a maximum width of 576px */
-  h1 {
-    font-size: calc(18px + 2vw);
-    left: 1vw;
-    top: 0.5vh;
-  }
-
-  .spline-container {
-    height: 80vw;
-    min-height: 200px;
-    right: 3em;
-  }
+  right: 15em
 }
