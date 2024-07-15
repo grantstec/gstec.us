@@ -69,22 +69,15 @@ body {
   border-color: #0037FF; /* Hover effect for better user interaction */
 }
 
-
-.bigcheese {
-  transition: 0.3s ease transform;
-  transform: scale(1,1);
+h1 {
+  color: #0037FF; /* Ensuring good contrast for accessibility */
   position: relative;
   left: 4vw;
   top: 2vh;
-  font-size: calc(96px + 2vw); 
-  font-family: "PCap Terminal", monospace; 
+  font-size: calc(96px + 2vw); /* Responsive font size */
+  font-family: "PCap Terminal", monospace; /* Fallback font for better accessibility */
   letter-spacing: 0.2vw;
-  font-weight: 400; 
-  z-index: 1; 
-}
-
-body.is-loading .bigcheese{
-    transform: scale(0,0);
+  font-weight: 400; /* Corrected font weight for standard readability */
 }
 
 .spline-container {
