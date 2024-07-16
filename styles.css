@@ -17,12 +17,25 @@ body{
   url("https://db.onlinewebfonts.com/t/d8d28220e3feff1ea3321de5ee9ce96c.svg#PCap Terminal")format("svg");
 }
 
+
+
+.logo{
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 3.25vh;
+  left: 2vw;
+  z-index: 2;
+}
+
 /* Navigation Bar Styling */
 .navbar {
   background-color: #292929;
   position: relative;
-  left: -20px;
-  top: 3vh;
+  top: 1vh;
+  left: 4vw;
+  display: inline-block;
+  
 }
 
 .nav-links {
@@ -33,8 +46,8 @@ body{
 .nav-links li {
   display: inline-block;
   position: relative;
-  padding-right: 2vw;
-  padding-top: 2vh;
+  padding-right: 3vw;
+  padding-top: 1vh;
  
 }
 
@@ -42,9 +55,10 @@ body{
   color: #ffffff;
   text-decoration: none;
   font-size: 10px;
-  letter-spacing: 0.25vw;
+  letter-spacing: 2px;
   font-size-adjust: cap-hieght;
   font-family: "PCap Terminal";
+  text-align: center;
 }
 
 /* Hover effect for links */
@@ -55,12 +69,13 @@ body{
 /* Sign-in Button Styling */
 .sign-in-btn {
   border-radius: 10px;
-  padding: 10px 20px;
+  padding: 5px 8px;
   border-style: solid;
-  border-width: 5px;
+  border-width: 3px;
   border-color: #ffffff;
   cursor: pointergb(255, 255, 255);
   z-index: 1;
+  position: relative;
 }
 
 .sign-in-btn:hover {
@@ -68,31 +83,38 @@ body{
 }
 
 h1 {
-  color:#0037FF;
+  background: linear-gradient(to right, #0037FF, #7EA2FF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   position: relative;
-  left: 20px;
-  top: 2vh;
-  font-size: 48;
+  text-align: center;
+  top: 1vh;
+  font-size: 80px;
   font-family: "PCap Terminal";
   letter-spacing: 0.2vw;
-  font-weight: 30;
+  font-weight: 300;
+  line-height: 75px;
 }
 
 h2 {
-  color:#0037FF;
+  background: linear-gradient(to right, #0037FF, #7EA2FF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   position: relative;
-  left: 20px;
-  font-size: 14px;
+  text-align: center;
+  font-size: 20px;
   font-family: "PCap Terminal";
-  letter-spacing: 0.2px;
-  font-weight: 30;
+  letter-spacing: 1px;
+  font-style: bold;
+  top: -4vh;
 }
 
 
 .spline-container{
-  height: 50vh;
-  width: 50vw;
+  height: 500px;
+  width: 400px;
+  top: 40vh;
   position: absolute;
-  top: 25vh;
-  left: 25vw;
+  align-items: center;
+  display: inline;
 }
