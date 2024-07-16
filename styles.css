@@ -88,7 +88,7 @@ h1 {
   -webkit-text-fill-color: transparent;
   position: relative;
   text-align: center;
-  top: 1vh;
+  top: -2vh;
   font-size: 80px;
   font-family: "PCap Terminal";
   letter-spacing: 0.2vw;
@@ -106,14 +106,14 @@ h2 {
   font-family: "PCap Terminal";
   letter-spacing: 1px;
   font-style: bold;
-  top: -4vh;
+  top: -7vh;
 }
 
 
 .spline-container{
-  height: 500px;
-  width: 400px;
-  top: 40vh;
+  height: 50vh;
+  width: 100vw;
+  top: 35vh;
   position: absolute;
   align-items: center;
   display: inline;
