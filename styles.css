@@ -258,11 +258,3 @@ h2 {
   display: inline;
 }
 
-@media screen and (max-width: 200px) {
-  #main-menu {
-    display: none;
-  }
-  #hamburger-menu {
-    display: inline;
-  }
-}
