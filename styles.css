@@ -34,7 +34,7 @@ label .menu {
   top: -100px;
   z-index: 100;
   width: 180px;
-  height: 0px;
+  height: 180px;
   background: #292929;
   border-radius: 50% 50% 50% 50%;
   -webkit-transition: .5s ease-in-out;
