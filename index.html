@@ -54,49 +54,11 @@
         </div>
 
     </body>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var themeSwitch = document.querySelector('#checkbox');
-            // Check for a saved theme preference and apply it
-            var savedTheme = localStorage.getItem('theme');
-            if (savedTheme) {
-                document.documentElement.setAttribute('data-theme', savedTheme);
-                themeSwitch.checked = savedTheme === 'dark';
-            }
-
-            themeSwitch.addEventListener('change', function () {
-                if (this.checked) {
-                    document.documentElement.setAttribute('data-theme', 'dark');
-                    localStorage.setItem('theme', 'dark'); // Save theme preference
-                } else {
-                    document.documentElement.setAttribute('data-theme', 'light');
-                    localStorage.setItem('theme', 'light'); // Save theme preference
-                }
-            });
-        });
-</script>
-    </script>
-    <script src="assets/js.js" type="text/html"></script>
-    <script type="text/javascript">
-            var gfonts = document.createElement('link');
-            gfonts.rel = 'stylesheet';
-            gfonts.href = 'https://fonts.googleapis.com/css?family=Montserrat:400,700,900';
-            gfonts.type = 'text/css';
-            var godefer = document.getElementsByTagName('link')[0];
-            godefer.parentNode.insertBefore(gfonts, godefer);
-
-            var iconfonts = document.createElement('link');
-            iconfonts.rel = 'stylesheet';
-            iconfonts.href = 'assets/icons/css/all.min.css';
-            iconfonts.type = 'text/css';
-            var godefer2 = document.getElementsByTagName('link')[0];
-            godefer2.parentNode.insertBefore(iconfonts, godefer2);
-        </script>
-    <script>
+<script>
     window.onload = function () {
         var shadowRoot = document.querySelector('spline-viewer').shadowRoot;
         shadowRoot.querySelector('#logo').remove();
     }
 </script>
-
+<script src="theme-switch.js"></script>
 </html>
