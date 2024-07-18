@@ -160,11 +160,7 @@ label a:hover {
 .theme-switch-wrapper {
   display: inline-block;
   align-items: center;
-  
-  em {
-    margin-left: 10px;
-    font-size: 1rem;
-  }
+
 }
 .theme-switch {
   display: inline-block;
@@ -225,7 +221,6 @@ h1 {
   -webkit-text-fill-color: transparent;
   position: relative;
   text-align: center;
-  top: 20px;
   font-size: 80px;
   font-family: "PCap Terminal";
   letter-spacing: 0.5px;
@@ -243,16 +238,16 @@ h2 {
   font-family: "PCap Terminal";
   letter-spacing: 1.5px;
   font-style: bold;
-  top: -20px;
+  top: -45px;
   padding-left: 20px;
   padding-right: 20px;
 }
 
 
 .spline-container{
-  height: 50vh;
+  height: 100vh;
   width: 100vw;
-  top: 40vh;
+  top: 20%;
   position: absolute;
   align-items: center;
   display: inline;
