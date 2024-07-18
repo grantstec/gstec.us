@@ -1,10 +1,27 @@
 html,
+
+[data-theme="light"] {
+  --primary-color: #0037FF;
+  --secondary-color: #7EA2FF;
+  --font-color: #292929;
+  --bg-color: #ffffff;
+  --heading-color: #292929;
+}
+
+[data-theme="dark"] {
+  --primary-color: #0037FF;
+  --secondary-color: #7EA2FF;
+  --font-color: #ffffff;
+  --bg-color: #292929;
+  --heading-color: #292929;
+}
+
 body{
    width: 100%;
    height: 100%;
    overflow: hidden;
    margin: 0;
-   background-color: #292929;
+   background-color: var(--bg-color);
 }
 
 @font-face {
@@ -35,11 +52,11 @@ label .menu {
   z-index: 100;
   width: 180px;
   height: 180px;
-  background: #292929;
+  background: var(--bg-color);
   border-radius: 50% 50% 50% 50%;
   -webkit-transition: .5s ease-in-out;
   transition: .5s ease-in-out;
-  box-shadow: 0 0 0 0 #292929, 0 0 0 0 #292929;
+  box-shadow: 0 0 0 0 var(--bg-color), 0 0 0 0 var(--bg-color);
   cursor: pointer;
 
   
@@ -77,7 +94,7 @@ label .hamburger:after { bottom: -10px; }
 label input { display: none; }
 
 label input:checked + .menu {
-  box-shadow: 0 0 0 100vw  #292929, 0 0 0 100vh #292929;
+  box-shadow: 0 0 0 100vw var(--bg-color), 0 0 0 100vh var(--bg-color);
   border-radius: 10;
   
 }
@@ -126,13 +143,74 @@ label a {
   text-decoration: none;
   font-family: "PCap Terminal";
   font-size: 20px;
-  letter-spacing: 1.5px;
+  letter-spacing: 2px;
 
   
 }
 
 label a:hover {
   color: #0037FF;
+}
+
+.theme-switch-wrapper {
+  display: inline-block;
+  align-items: center;
+  
+  em {
+    margin-left: 10px;
+    font-size: 1rem;
+  }
+}
+.theme-switch {
+  display: inline-block;
+  height: 34px;
+  position: relative;
+  width: 60px;
+  align-items: center;
+  vertical-align: center;
+}
+
+.theme-switch input {
+  display:none;
+}
+
+.slider {
+  background-color: #b9b9b9;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: .4s;
+}
+
+.slider:before {
+  background-color: #ffffff;
+  bottom: 4px;
+  content: "";
+  height: 26px;
+  left: 4px;
+  position: absolute;
+  transition: .4s;
+  width: 26px;
+}
+
+input:checked + .slider {
+  background-color: #b9b9b9;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+  background-color: #292929;
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
 }
 
 

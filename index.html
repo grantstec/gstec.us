@@ -1,51 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BlueHorizon</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="BHlogosmall.png" type="image/x-icon">
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <link href="https://db.onlinewebfonts.com/c/d8d28220e3feff1ea3321de5ee9ce96c?family=PCap+Terminal" rel="stylesheet"
-        type="text/css" />
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>BlueHorizon</title>
+        <link rel="stylesheet" href="styles.css">
+        <link rel="icon" href="BHlogosmall.png" type="image/x-icon">
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <link
+            href="https://db.onlinewebfonts.com/c/d8d28220e3feff1ea3321de5ee9ce96c?family=PCap+Terminal"
+            rel="stylesheet"
+            type="text/css" />
+    </head>
 
-<body>
-    <!-- <span>
+    <body>
+        <!-- <span>
         <a href="#"><img src="BHlogosmall.png" class="logo" alt="Logo"></a>
     </span> -->
-    <label>
-        <input type="checkbox">
-        <span class="menu"> <span class="hamburger"></span> </span>
-        <ul>
-          <li> <a href="#">TEAM CALENDAR</a> </li>
-          <li> <a href="#">ENGINE</a> </li>
-          <li> <a href="#">AIRFRAME</a> </li>
-          <li> <a href="#">SAFTEY</a> </li>
-          <li> <a href="#">ADMIN</a> </li>
-          <li> <a href="#">RESEARCH</a> </li>
-          <li> <a href="#">RESOURCES</a> </li>
-          <li> <a href="#">SIGN IN</a> </li>
-        </ul>
+        <label>
+            <input type="checkbox">
+            <span class="menu"> <span class="hamburger"></span> </span>
+            <ul>
+                <li> <a href="#">TEAM CALENDAR</a> </li>
+                <li> <a href="#">ENGINE</a> </li>
+                <li> <a href="#">AIRFRAME</a> </li>
+                <li> <a href="#">SAFTEY</a> </li>
+                <li> <a href="#">ADMIN</a> </li>
+                <li> <a href="#">RESEARCH</a> </li>
+                <li> <a href="#">RESOURCES</a> </li>
+                <li> <a href="#">SIGN IN</a> </li>
+                <div class="theme-switch-wrapper">
+                    <label class="theme-switch" for="checkbox">
+                        <input type="checkbox" id="checkbox" />
+                        <div class="slider round">
+                        </div>
+                    </label>
+                </div>
+            </ul>
+
         </label>
-    <div>
-        <h1>BLUE HORIZON</h1>
-    </div>
-    <div class="spline-container">
-        <script type="module" src="https://unpkg.com/@splinetool/viewer@1.8.9/build/spline-viewer.js"></script>
-        <spline-viewer class="spline-viewer" url="https://prod.spline.design/cr1dAjyDvpIqqmoJ/scene.splinecode"
-            background="#292929"></spline-viewer>
-    </div>
-    <div>
-        <h2>USAFA COLLEGIATE ROCKETRY CLUB</h2>
-    </div>
+        <div>
+            <h1>BLUE HORIZON</h1>
+        </div>
+        <div class="spline-container">
+            <script type="module"
+                src="https://unpkg.com/@splinetool/viewer@1.8.9/build/spline-viewer.js"></script>
+            <spline-viewer class="spline-viewer" id="spline-viewer"
+                url="https://prod.spline.design/cr1dAjyDvpIqqmoJ/scene.splinecode"></spline-viewer>
+        </div>
+        <div>
+            <h2>USAFA COLLEGIATE ROCKETRY CLUB</h2>
+        </div>
 
+    </body>
+    <script src="assets/js.js" type="text/html"></script>
+    <script type="text/javascript">
+            var gfonts = document.createElement('link');
+            gfonts.rel = 'stylesheet';
+            gfonts.href = 'https://fonts.googleapis.com/css?family=Montserrat:400,700,900';
+            gfonts.type = 'text/css';
+            var godefer = document.getElementsByTagName('link')[0];
+            godefer.parentNode.insertBefore(gfonts, godefer);
 
-</body>
-
-<script>
+            var iconfonts = document.createElement('link');
+            iconfonts.rel = 'stylesheet';
+            iconfonts.href = 'assets/icons/css/all.min.css';
+            iconfonts.type = 'text/css';
+            var godefer2 = document.getElementsByTagName('link')[0];
+            godefer2.parentNode.insertBefore(iconfonts, godefer2);
+        </script>
+    <script>
     window.onload = function () {
         var shadowRoot = document.querySelector('spline-viewer').shadowRoot;
         shadowRoot.querySelector('#logo').remove();
