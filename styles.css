@@ -30,11 +30,11 @@ body{
 
 label .menu {
   position: absolute;
-  right: -100px;
+  right: -80px;
   top: -100px;
   z-index: 100;
-  width: 200px;
-  height: 200px;
+  width: 180px;
+  height: 0px;
   background: #292929;
   border-radius: 50% 50% 50% 50%;
   -webkit-transition: .5s ease-in-out;
@@ -47,7 +47,7 @@ label .menu {
 
 label .hamburger {
   position: absolute;
-  top: 135px;
+  top: 15vh;
   left: 50px;
   width: 30px;
   height: 2px;
@@ -78,13 +78,14 @@ label input { display: none; }
 
 label input:checked + .menu {
   box-shadow: 0 0 0 100vw  #292929, 0 0 0 100vh #292929;
-  border-radius: 0;
+  border-radius: 10;
   
 }
 
 label input:checked + .menu .hamburger {
   -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
+
   
 }
 
