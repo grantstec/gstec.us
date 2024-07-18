@@ -128,7 +128,7 @@ label input:checked + .menu + ul {
 label ul {
   z-index: 200;
   position: absolute;
-  top: 45%;
+  top: 50%;
   left: 47vw;
   text-align: center;
   -webkit-transform: translate(-50%, -50%);
@@ -142,7 +142,7 @@ label ul {
 }
 
 label a {
-  margin-bottom: 2em;
+  margin-bottom: 1.6em;
   display: block;
   color: var(--font-color);
   text-decoration: none;
