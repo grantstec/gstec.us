@@ -120,7 +120,10 @@ label input:checked + .menu .hamburger:before {
   
 }
 
-label input:checked + .menu + ul { opacity: 1; }
+label input:checked + .menu + ul { 
+  opacity: 1; 
+  pointer-events: auto;
+}
 
 label ul {
   z-index: 200;
@@ -134,6 +137,8 @@ label ul {
   -webkit-transition: .25s 0s ease-in-out;
   transition: .25s 0s ease-in-out;
   list-style-type: none;
+  pointer-events: none;
+
 }
 
 label a {
@@ -239,6 +244,8 @@ h2 {
   letter-spacing: 1.5px;
   font-style: bold;
   top: -20px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 
@@ -251,7 +258,7 @@ h2 {
   display: inline;
 }
 
-@media screen and (max-width: 1750px) {
+@media screen and (max-width: 200px) {
   #main-menu {
     display: none;
   }
