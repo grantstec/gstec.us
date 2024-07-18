@@ -19,68 +19,121 @@ body{
 
 
 
-.logo{
+/* .logo{
   width: 30px;
   height: 30px;
   position: absolute;
   top: 3.25vh;
   left: 2vw;
   z-index: 2;
-}
+} */
 
-/* Navigation Bar Styling */
-.navbar {
-  background-color: #292929;
-  position: relative;
-  top: 1vh;
-  left: 4vw;
-  display: inline-block;
+label .menu {
+  position: absolute;
+  right: -100px;
+  top: -100px;
+  z-index: 100;
+  width: 200px;
+  height: 200px;
+  background: #292929;
+  border-radius: 50% 50% 50% 50%;
+  -webkit-transition: .5s ease-in-out;
+  transition: .5s ease-in-out;
+  box-shadow: 0 0 0 0 #292929, 0 0 0 0 #292929;
+  cursor: pointer;
+
   
 }
 
-.nav-links {
-  list-style: none;
-  margin: 0;
+label .hamburger {
+  position: absolute;
+  top: 135px;
+  left: 50px;
+  width: 30px;
+  height: 2px;
+  background: #ffffff;
+  display: block;
+  -webkit-transform-origin: center;
+  transform-origin: center;
+  -webkit-transition: .5s ease-in-out;
+  transition: .5s ease-in-out;
 }
 
-.nav-links li {
-  display: inline-block;
-  position: relative;
-  padding-right: 3vw;
-  padding-top: 1vh;
- 
+label .hamburger:after, label .hamburger:before {
+  -webkit-transition: .5s ease-in-out;
+  transition: .5s ease-in-out;
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
 }
 
-.nav-links li a {
+label .hamburger:before { top: -10px; }
+
+label .hamburger:after { bottom: -10px; }
+
+label input { display: none; }
+
+label input:checked + .menu {
+  box-shadow: 0 0 0 100vw  #292929, 0 0 0 100vh #292929;
+  border-radius: 0;
+  
+}
+
+label input:checked + .menu .hamburger {
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  
+}
+
+label input:checked + .menu .hamburger:after {
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  bottom: 0;
+  
+}
+
+label input:checked + .menu .hamburger:before {
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  top: 0;
+  
+}
+
+label input:checked + .menu + ul { opacity: 1; }
+
+label ul {
+  z-index: 200;
+  position: absolute;
+  top: 40%;
+  left: 47vw;
+  text-align: center;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  -webkit-transition: .25s 0s ease-in-out;
+  transition: .25s 0s ease-in-out;
+  list-style-type: none;
+}
+
+label a {
+  margin-bottom: 2em;
+  display: block;
   color: #ffffff;
   text-decoration: none;
-  font-size: 12px;
-  letter-spacing: 2px;
-  font-size-adjust: cap-hieght;
   font-family: "PCap Terminal";
-  text-align: center;
+  font-size: 20px;
+  letter-spacing: 1.5px;
+
+  
 }
 
-/* Hover effect for links */
-.nav-links li:hover a {
-  color: #0037FF; 
+label a:hover {
+  color: #0037FF;
 }
 
-/* Sign-in Button Styling */
-.sign-in-btn {
-  border-radius: 10px;
-  padding: 5px 8px;
-  border-style: solid;
-  border-width: 3px;
-  border-color: #ffffff;
-  cursor: pointergb(255, 255, 255);
-  z-index: 1;
-  position: relative;
-}
-
-.sign-in-btn:hover {
-  border-color: #0037FF;
-}
 
 h1 {
   background: linear-gradient(to right, #0037FF, #7EA2FF);
@@ -117,4 +170,13 @@ h2 {
   position: absolute;
   align-items: center;
   display: inline;
+}
+
+@media screen and (max-width: 1750px) {
+  #main-menu {
+    display: none;
+  }
+  #hamburger-menu {
+    display: inline;
+  }
 }
