@@ -68,7 +68,7 @@ label .hamburger {
   left: 40px;
   width: 30px;
   height: 2px;
-  background: #ffffff;
+  background: var(--font-color);
   display: block;
   -webkit-transform-origin: center;
   transform-origin: center;
@@ -84,7 +84,7 @@ label .hamburger:after, label .hamburger:before {
   display: block;
   width: 100%;
   height: 100%;
-  background: #ffffff;
+  background: var(--font-color);
 }
 
 label .hamburger:before { top: -10px; }
@@ -139,7 +139,7 @@ label ul {
 label a {
   margin-bottom: 2em;
   display: block;
-  color: #ffffff;
+  color: var(--font-color);
   text-decoration: none;
   font-family: "PCap Terminal";
   font-size: 20px;
