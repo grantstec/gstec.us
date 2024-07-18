@@ -128,7 +128,7 @@ label input:checked + .menu + ul {
 label ul {
   z-index: 200;
   position: absolute;
-  top: 40%;
+  top: 45%;
   left: 47vw;
   text-align: center;
   -webkit-transform: translate(-50%, -50%);
@@ -257,4 +257,6 @@ h2 {
   align-items: center;
   display: inline;
 }
+
+/* Media Queries for Different Devices */
 
