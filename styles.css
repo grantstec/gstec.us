@@ -51,7 +51,7 @@ label .menu {
   top: -100px;
   z-index: 100;
   width: 180px;
-  height: 180px;
+  height: 170px;
   background: var(--bg-color);
   border-radius: 50% 50% 50% 50%;
   -webkit-transition: .5s ease-in-out;
@@ -134,8 +134,8 @@ label ul {
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   opacity: 0;
-  -webkit-transition: .25s 0s ease-in-out;
-  transition: .25s 0s ease-in-out;
+  -webkit-transition: .25s 1s ease-in-out;
+  transition: .25s 0.25s ease-in-out;
   list-style-type: none;
   pointer-events: none;
 
