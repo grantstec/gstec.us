@@ -1,5 +1,5 @@
 export async function onRequestPost(context) {
-    const { D1 } = context.env;
+    const { bhdb } = context.env;
     const { username, password, email } = await context.request.json();
   
     // Hash the password (use a library in production)
@@ -12,7 +12,7 @@ export async function onRequestPost(context) {
     const params = [username, hashedPassword, email];
   
     try {
-      await D1.prepare(query).bind(...params).run();
+      await bhdb.prepare(query).bind(...params).run();
       return new Response('User created successfully', { status: 201 });
     } catch (err) {
       return new Response('Error creating user: ' + err.message, { status: 500 });

@@ -1,5 +1,5 @@
 export async function onRequestPost(context) {
-    const { D1 } = context.env;
+    const { bhdb } = context.env;
     const { username, password } = await context.request.json();
   
     const query = `
@@ -8,7 +8,7 @@ export async function onRequestPost(context) {
     const params = [username];
   
     try {
-      const result = await D1.prepare(query).bind(...params).first();
+      const result = await bhdb.prepare(query).bind(...params).first();
       if (result && await checkPassword(password, result.password)) {
         return new Response('Login successful', { status: 200 });
       }
