@@ -1,0 +1,29 @@
+export async function onRequestPost(context) {
+    const { D1 } = context.env;
+    const { username, password } = await context.request.json();
+  
+    const query = `
+      SELECT * FROM users WHERE username = ?
+    `;
+    const params = [username];
+  
+    try {
+      const result = await D1.prepare(query).bind(...params).first();
+      if (result && await checkPassword(password, result.password)) {
+        return new Response('Login successful', { status: 200 });
+      }
+      return new Response('Invalid credentials', { status: 401 });
+    } catch (err) {
+      return new Response('Error logging in: ' + err.message, { status: 500 });
+    }
+  }
+  
+  async function checkPassword(password, hashedPassword) {
+    // Simple check for demonstration, use a secure method in production
+    const encoder = new TextEncoder();
+    const data = encoder.encode(password);
+    const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+    const hashHex = Array.from(new Uint8Array(hashBuffer)).map(b => b.toString(16).padStart(2, '0')).join('');
+    return hashHex === hashedPassword;
+  }
+  
