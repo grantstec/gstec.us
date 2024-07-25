@@ -2,8 +2,12 @@ export async function onRequestPost(context) {
     const { bhdb } = context.env;
     const { username, password, email } = await context.request.json();
   
+    console.log('Received data:', { username, password, email });
+  
     // Hash the password (use a library in production)
     const hashedPassword = await hashPassword(password);
+  
+    console.log('Hashed password:', hashedPassword);
   
     const query = `
       INSERT INTO users (username, password, email)
@@ -12,9 +16,12 @@ export async function onRequestPost(context) {
     const params = [username, hashedPassword, email];
   
     try {
+      console.log('Preparing to insert user');
       await bhdb.prepare(query).bind(...params).run();
+      console.log('User created successfully');
       return new Response('User created successfully', { status: 201 });
     } catch (err) {
+      console.error('Error creating user:', err);
       return new Response('Error creating user: ' + err.message, { status: 500 });
     }
   }
