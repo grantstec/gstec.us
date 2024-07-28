@@ -10,11 +10,10 @@ export async function onRequestPost(context) {
   try {
     const result = await bhdb.prepare(query).bind(...params).first();
     if (result && await checkPassword(password, result.password)) {
-      // Save the username to local storage
-      localStorage.setItem('username', username);
-    } else {
-      return new Response('Invalid credentials', { status: 401 });
+      sessionStorage.setItem('username', username);
+      return new Response('Login successful', { status: 200 });
     }
+    return new Response('Invalid credentials', { status: 401 });
   } catch (err) {
     return new Response('Error logging in: ' + err.message, { status: 500 });
   }
