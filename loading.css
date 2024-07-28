@@ -280,3 +280,27 @@ input:checked+.slider:before {
     opacity: 1;
     position: relative;
 }
+
+
+.countdown{
+    position: relative;
+    background: linear-gradient(to right, #0037FF, #7EA2FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font: var(--h4);
+    font-family: "PCap Terminal";
+    text-align: center;
+    letter-spacing: 2px;
+
+}
+.content-card h4{
+    position: relative;
+    background: linear-gradient(to right, #0037FF, #7EA2FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font: var(--p);
+    font-family: "PCap Terminal";
+    text-align: center;
+    letter-spacing: 1px;
+    top: -20px;
+}
