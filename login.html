@@ -29,6 +29,8 @@
       const formData = new FormData(event.target);
       const data = Object.fromEntries(formData);
 
+      sessionStorage.setItem('username', data.username);
+
       const response = await fetch('/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
