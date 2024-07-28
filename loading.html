@@ -1,30 +1,46 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>loadingScreen</title>
-    <link rel="stylesheet" href="loading.css">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>loadingScreen</title>
+        <link rel="stylesheet" href="loading.css">
 
-</head>
-<body>
-    <div class="loadingScreen">
+    </head>
+    <body>
+        <div class="loadingScreen">
             <h1 class="welcometext" id="welcome-text">WELCOME BACK</h1>
-              <div class="logo">
+            <div class="logo">
                 <img src="BHlogolarge.png" alt="Blue Horizon Logo">
             </div>
             <div class="loader"></div>
-            </div>
+        </div>
 
-</body>
-<script src="theme-switch.js"></script>
-<script>
+        <div id="main-content" style="display: none;">
+            <h1>Welcome to the Main Page</h1>
+            <p>Your main content goes here.</p>
+        </div>
+
+    </body>
+    <script src="theme-switch.js"></script>
+    <script>
     document.addEventListener('DOMContentLoaded', function () {
         const username = sessionStorage.getItem('username');
         if (username) {
             const welcomeText = document.getElementById('welcome-text');
             welcomeText.textContent += ` ${username.toUpperCase()}`;
         }
+    });
+</script>
+<script>
+    window.addEventListener('load', function () {
+        const loadingScreen = document.querySelector('.loadingScreen');
+        const mainContent = document.getElementById('main-content');
+
+        setTimeout(() => {
+            loadingScreen.style.display = 'none';
+            mainContent.style.display = 'block';
+        }, 3000);
     });
 </script>
 </html>
