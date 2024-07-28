@@ -6,6 +6,7 @@ export async function onRequestPost(context) {
     SELECT * FROM users WHERE username = ?
   `;
   const params = [username];
+  sessionStorage.setItem('username', username);
 
   try {
     const result = await bhdb.prepare(query).bind(...params).first();
