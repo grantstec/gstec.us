@@ -20,10 +20,10 @@
 <script src="theme-switch.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        const username = localStorage.getItem('username');
+        const username = sessionStorage.getItem('username');
         if (username) {
             const welcomeText = document.getElementById('welcome-text');
-            welcomeText.textContent += `, ${username.toUpperCase()}`;
+            welcomeText.textContent += `${username.toUpperCase()}`;
         }
     });
 </script>
