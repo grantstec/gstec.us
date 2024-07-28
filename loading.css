@@ -1,0 +1,100 @@
+html,
+
+[data-theme="light"] {
+  --primary-color: #0037FF;
+  --secondary-color: #7EA2FF;
+  --font-color: #292929;
+  --bg-color: #ffffff;
+  --heading-color: #292929;
+}
+
+[data-theme="dark"] {
+  --primary-color: #0037FF;
+  --secondary-color: #7EA2FF;
+  --font-color: #ffffff;
+  --bg-color: #292929;
+  --heading-color: #292929;
+}
+
+body{
+   width: 100%;
+   height: 100%;
+   overflow: hidden;
+   margin: 0;
+   background-color: var(--bg-color);
+}
+
+/* landing page */
+:root{
+--ff: "PCap Terminal";
+--h1: bold 4rem/0.9em var(--ff);
+--h2: bold 3rem/1.2em var(--ff);
+--h3: bold 2.25rem/1.2em var(--ff);
+--h4: bold 1.25rem/1em var(--ff);
+--big: 1.25rem/1.6em var(--ff);
+--p: 1rem/1.6em var(--ff);
+--small: .6rem/1.5em var(--ff);
+}
+@font-face {
+  font-family: "PCap Terminal";
+  src: url("https://db.onlinewebfonts.com/t/d8d28220e3feff1ea3321de5ee9ce96c.eot");
+  src: url("https://db.onlinewebfonts.com/t/d8d28220e3feff1ea3321de5ee9ce96c.eot?#iefix")format("embedded-opentype"),
+  url("https://db.onlinewebfonts.com/t/d8d28220e3feff1ea3321de5ee9ce96c.woff2")format("woff2"),
+  url("https://db.onlinewebfonts.com/t/d8d28220e3feff1ea3321de5ee9ce96c.woff")format("woff"),
+  url("https://db.onlinewebfonts.com/t/d8d28220e3feff1ea3321de5ee9ce96c.ttf")format("truetype"),
+  url("https://db.onlinewebfonts.com/t/d8d28220e3feff1ea3321de5ee9ce96c.svg#PCap Terminal")format("svg");
+  font-display: block;
+}
+
+.loadingScreen {
+    position: absolute;
+    z-index: 5;
+    width: 100%;
+    height: 100vh;
+    top: -150px;
+    background-color: var(--bg-color);
+    color: var(--font-color);
+    font: var(--p);
+    font-family: var(--ff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+.logo {
+    position: absolute;
+    top: 65%;
+    width: 120px;
+    height: 120px;
+    /* animation:  rotateForever 1s infinite; */
+    img {
+      width: 100%;
+      height: 100%;
+    }
+
+}
+/* @keyframes rotateForever {
+    from {
+        transform: rotate(360deg);
+    }
+} */
+
+.loader {
+    position: absolute;
+    top: 55%;
+    border: 10px solid var(--bg-color); /* Light grey */
+    border-top: 10px solid var(--font-color); /* Blue */
+    border-radius: 50%;
+    width: 225px;
+    height: 225px;
+    animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+
+
+
