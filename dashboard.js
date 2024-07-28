@@ -38,7 +38,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Initialize the indicator position and show the first content
     const activeLink = document.querySelector('.maincontent nav a.active') || navLinks[0];
     if (activeLink) {
         activeLink.classList.add('active');
