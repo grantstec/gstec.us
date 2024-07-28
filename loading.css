@@ -225,12 +225,13 @@ input:checked+.slider:before {
     cursor: pointer;
 }
 
+
 .maincontent nav {
     width: 100%;
     background-color: var(--bg-color);
     display: flex;
     justify-content: center;
-    position: relative; 
+    position: relative;
 }
 
 .maincontent nav a {
@@ -239,16 +240,38 @@ input:checked+.slider:before {
     text-decoration: none;
     margin: 0 10px;
     letter-spacing: 1px;
-    position: relative; 
+    position: relative;
 }
 
 .indicator {
     position: absolute;
     bottom: 0;
-    margin-left: -1.5px;
+    left: 0;
     height: 2px;
     width: 50px;
     background-color: var(--primary-color);
     transition: left 0.3s ease, width 0.3s ease;
-    transform: translateY(3px); 
+    transform: translateY(5px);
+}
+
+.content-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.content-card {
+    display: none;
+    width: 80%;
+    padding: 20px;
+    background-color: var(--card-bg-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    transition: opacity 0.3s ease;
+}
+
+.content-card.active {
+    display: block;
+    opacity: 1;
 }

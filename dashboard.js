@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const navLinks = document.querySelectorAll('.maincontent nav a');
     const indicator = document.querySelector('.maincontent nav .indicator');
+    const contentCards = document.querySelectorAll('.content-card');
 
     navLinks.forEach(link => {
         link.addEventListener('click', function (e) {
@@ -17,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
             this.classList.add('active');
             moveIndicator(this);
+            showContent(this.getAttribute('data-content'));
         });
     });
 
@@ -27,9 +29,20 @@ document.addEventListener('DOMContentLoaded', function () {
         indicator.style.left = `${rect.left - navRect.left}px`;
     }
 
-    // Initialize the indicator position
-    const activeLink = document.querySelector('.maincontent nav a.active');
+    function showContent(contentId) {
+        contentCards.forEach(card => {
+            card.classList.remove('active');
+            if (card.id === contentId) {
+                card.classList.add('active');
+            }
+        });
+    }
+
+    // Initialize the indicator position and show the first content
+    const activeLink = document.querySelector('.maincontent nav a.active') || navLinks[0];
     if (activeLink) {
+        activeLink.classList.add('active');
         moveIndicator(activeLink);
+        showContent(activeLink.getAttribute('data-content'));
     }
 });
