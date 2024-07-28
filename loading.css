@@ -262,14 +262,13 @@ input:checked+.slider:before {
     width: 100%;
     display: flex;
     justify-content: center;
-    height: 100%;
+    height: 81.5%;
 }
 
 .content-card {
     visibility: hidden;
     opacity: 0;
-    width: 80%;
-
+    width: 85%;
     padding: 20px;
     background-color: var(--accent-color);
     border-radius: 10px;
