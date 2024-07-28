@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
     var themeSwitch = document.querySelector('#checkbox');
-    // Check for a saved theme preference and apply it
     var savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
         document.documentElement.setAttribute('data-theme', savedTheme);
@@ -10,10 +9,10 @@ document.addEventListener('DOMContentLoaded', function () {
     themeSwitch.addEventListener('change', function () {
         if (this.checked) {
             document.documentElement.setAttribute('data-theme', 'dark');
-            localStorage.setItem('theme', 'dark'); // Save theme preference
+            localStorage.setItem('theme', 'dark'); 
         } else {
             document.documentElement.setAttribute('data-theme', 'light');
-            localStorage.setItem('theme', 'light'); // Save theme preference
+            localStorage.setItem('theme', 'light'); 
         }
     });
 });

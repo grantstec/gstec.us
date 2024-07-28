@@ -19,7 +19,6 @@ export async function onRequestPost(context) {
   }
   
   async function checkPassword(password, hashedPassword) {
-    // Simple check for demonstration, use a secure method in production
     const encoder = new TextEncoder();
     const data = encoder.encode(password);
     const hashBuffer = await crypto.subtle.digest('SHA-256', data);

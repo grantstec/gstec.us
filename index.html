@@ -15,7 +15,7 @@
     </head>
 
     <body>
-        <label>
+        <!-- <label>
             <input type="checkbox">
             <span class="menu"> <span class="hamburger"></span> </span>
             <ul>
@@ -29,16 +29,21 @@
                 <li> <a href="#">RESOURCES</a> </li>
                 <li> <a href="login.html">LOG IN</a> </li>
                 <li> <a href="signup.html">SIGN UP</a> </li>
-                <div class="theme-switch-wrapper">
-                    <label class="theme-switch" for="checkbox">
-                        <input type="checkbox" id="checkbox" />
-                        <div class="slider round">
-                        </div>
-                    </label>
-                </div>
+
             </ul>
 
-        </label>
+        </label> -->
+        <div class="theme-switch-wrapper">
+            <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox" />
+                <div class="slider round">
+                </div>
+            </label>
+        </div>
+        <button class="button" onclick="window.location.href='login.html'">
+            LOG IN
+        </button>
+
         <div>
             <h1>BLUE HORIZON</h1>
         </div>
@@ -53,11 +58,11 @@
         </div>
 
     </body>
-<script>
+    <script>
     window.onload = function () {
         var shadowRoot = document.querySelector('spline-viewer').shadowRoot;
         shadowRoot.querySelector('#logo').remove();
     }
 </script>
-<script src="theme-switch.js"></script>
+    <script src="theme-switch.js"></script>
 </html>

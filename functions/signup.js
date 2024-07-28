@@ -4,7 +4,6 @@ export async function onRequestPost(context) {
   
     console.log('Received data:', { username, password, email });
   
-    // Hash the password (use a library in production)
     const hashedPassword = await hashPassword(password);
   
     console.log('Hashed password:', hashedPassword);
@@ -27,7 +26,6 @@ export async function onRequestPost(context) {
   }
   
   async function hashPassword(password) {
-    // Simple hashing for demonstration, use a secure method in production
     const encoder = new TextEncoder();
     const data = encoder.encode(password);
     const hashBuffer = await crypto.subtle.digest('SHA-256', data);
