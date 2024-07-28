@@ -58,7 +58,10 @@ body{
   letter-spacing: 1px;
   padding-left: 10px;
   padding-right: 10px;
-}
+  padding-top: 2.5px;
+  padding-bottom: 2.5px;
+  
+  }
 
 .button:hover{
   border-color: var(--primary-color);
@@ -193,8 +196,7 @@ label a:hover {
   position: relative;
   align-items: center;
   left: 20px;
-  top: 15px;
-
+  top: 20px;
 }
 .theme-switch {
   display: inline-block;
