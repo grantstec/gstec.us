@@ -8,7 +8,7 @@
 
     </head>
     <body>
-        <div class="loadingScreen">
+        <div class="loadingScreen" id="loading-screen">
             <h1 class="welcometext" id="welcome-text">WELCOME BACK</h1>
             <div class="logo">
                 <img src="BHlogolarge.png" alt="Blue Horizon Logo">
@@ -16,8 +16,8 @@
             <div class="loader"></div>
         </div>
 
-        <div id="main-content" style="display: none;">
-            <h1>Dashboard</h1>
+        <div class="maincontent" id="main-content">
+            Dashboard
         </div>
 
     </body>
@@ -33,13 +33,19 @@
 </script>
 <script>
     window.addEventListener('load', function () {
-        const loadingScreen = document.querySelector('.loadingScreen');
+        const loadingScreen = document.getElementById('loading-screen');
         const mainContent = document.getElementById('main-content');
 
         setTimeout(() => {
-            loadingScreen.style.display = 'none';
-            mainContent.style.display = 'block';
+            loadingScreen.classList.add('fade-out');
+            mainContent.classList.add('fade-in');
+
+            // Hide the loading screen after the fade-out transition
+            loadingScreen.addEventListener('transitionend', () => {
+                loadingScreen.style.display = 'none';
+                mainContent.style.opacity = '1'; // Ensure main content is visible
+            });
         }, 3000);
     });
-</script>
+    </script>
 </html>
