@@ -10,7 +10,6 @@ export async function onRequestPost(context) {
   try {
     const result = await bhdb.prepare(query).bind(...params).first();
     if (result && await checkPassword(password, result.password)) {
-      sessionStorage.setItem('username', username);
       return new Response('Login successful', { status: 200 });
     }
     return new Response('Invalid credentials', { status: 401 });
