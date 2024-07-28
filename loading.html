@@ -23,7 +23,7 @@
         const username = sessionStorage.getItem('username');
         if (username) {
             const welcomeText = document.getElementById('welcome-text');
-            welcomeText.textContent += `${username.toUpperCase()}`;
+            welcomeText.textContent += ` ${username.toUpperCase()}`;
         }
     });
 </script>
