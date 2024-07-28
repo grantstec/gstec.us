@@ -46,25 +46,27 @@ body{
   font-display: block;
 }
 
-.loadingScreen {
-    position: absolute;
-    z-index: 5;
-    width: 100%;
-    height: 100vh;
-    top: -150px;
-    background-color: var(--bg-color);
-    color: var(--font-color);
-    font: var(--p);
-    font-family: var(--ff);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    letter-spacing: 2px;
-  }
+
+.welcometext{
+    background: linear-gradient(to right, #0037FF, #7EA2FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    font: var(--h2);
+    font-family: "PCap Terminal";
+    letter-spacing: 0.5px;
+    line-height: 45px;
+    top: 100px;
+    text-align: center;
+    
+}
 
 .logo {
-    position: absolute;
-    top: 65%;
+    position: relative;
+    top: 200px;
+    justify-content: center;
+    display: flex;
+    margin: 0 auto;
     width: 120px;
     height: 120px;
     /* animation:  rotateForever 1s infinite; */
@@ -81,8 +83,11 @@ body{
 } */
 
 .loader {
-    position: absolute;
-    top: 55%;
+    position: relative;
+    top: 10px;
+    justify-content: center;
+    display: flex;
+    margin: 0 auto;
     border: 10px solid var(--bg-color); /* Light grey */
     border-top: 10px solid var(--font-color); /* Blue */
     border-radius: 50%;
