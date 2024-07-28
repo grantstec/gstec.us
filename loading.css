@@ -365,7 +365,7 @@ input:checked+.slider:before {
     display: inline-flex;
     text-align: center;
     justify-content: center;
-    background-color: var(--heading-color);
+    background-color: var(--font-color);
     border-radius: 10px;
     padding-left: 10px;
     padding-right: 10px;
@@ -385,7 +385,7 @@ input:checked+.slider:before {
     position: relative;
     display: inline-flex;
     justify-content: left;
-    background-color: var(--heading-color);
+    background-color: var(--font-color);
     border-radius: 10px;
     padding-left: 10px;
     padding-right: 10px;
