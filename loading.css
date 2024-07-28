@@ -268,9 +268,9 @@ input:checked+.slider:before {
 .content-card {
     visibility: hidden;
     opacity: 0;
-    width: 85%;
+    width: 100%;
     padding: 20px;
-    background-color: var(--accent-color);
+    background-color: var(--bg-color);
     border-radius: 10px;
     transition: opacity 0.75s ease-in-out, visibility 0.75s ease-in-out;
     position: absolute;
@@ -305,3 +305,92 @@ input:checked+.slider:before {
     letter-spacing: 1px;
     top: -20px;
 }
+
+.teamdeadlines{
+    background-color: var(--accent-color);
+    border-radius: 10px;
+    position: relative;
+    top:-20px;
+    width: 100%;
+    height: 25%;
+    color: var(--font-color);
+    font: var(--p);
+    font-family: "PCap Terminal";
+    text-align: center;
+    letter-spacing: 2px;
+    text-decoration: none;
+    overflow-y: auto;
+    
+}
+
+.teamdeadlines::-webkit-scrollbar {
+    width: 0px; /* Width of the scrollbar */
+}
+
+.teamdeadlines h3{
+    width: 100%;
+    margin-top: 3px;
+}
+
+.yourdeadlines{
+    background-color: var(--accent-color);
+    border-radius: 10px;
+    position: relative;
+    width: 100%;
+    height: 25%;
+    color: var(--font-color);
+    font: var(--p);
+    font-family: "PCap Terminal";
+    text-align: center;
+    letter-spacing: 2px;
+    text-decoration: none;
+    overflow-y: auto;
+    
+}
+
+.yourdeadlines::-webkit-scrollbar {
+    width: 0px; /* Width of the scrollbar */
+}
+
+.yourdeadlines h3{
+    width: 100%;
+    margin-top: 3px;
+}
+
+.deadlinedate{
+    color: var(--bg-color);
+    font: var(--small);
+    font-family: "PCap Terminal";
+    position: relative;
+    display: inline-flex;
+    text-align: center;
+    justify-content: center;
+    background-color: var(--heading-color);
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-right: 5px;
+    width: 30%;
+    margin-left: px;
+
+}
+
+.deadline{
+    width: 50%;
+    color: var(--bg-color);
+    font: var(--small);
+    font-family: "PCap Terminal";
+    position: relative;
+    display: inline-flex;
+    justify-content: left;
+    background-color: var(--heading-color);
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-right: 10px;
+}
+
