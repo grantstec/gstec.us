@@ -137,6 +137,7 @@ body {
     text-align: left;
     margin-top: 50px;
     margin-left: 20px;
+    letter-spacing: 2px;
 }
 
 
@@ -229,7 +230,7 @@ input:checked+.slider:before {
     background-color: var(--bg-color);
     display: flex;
     justify-content: center;
-
+    position: relative; 
 }
 
 .maincontent nav a {
@@ -238,4 +239,16 @@ input:checked+.slider:before {
     text-decoration: none;
     margin: 0 10px;
     letter-spacing: 1px;
+    position: relative; 
+}
+
+.indicator {
+    position: absolute;
+    bottom: 0;
+    margin-left: -1.5px;
+    height: 2px;
+    width: 50px;
+    background-color: var(--primary-color);
+    transition: left 0.3s ease, width 0.3s ease;
+    transform: translateY(3px); 
 }

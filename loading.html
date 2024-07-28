@@ -33,35 +33,12 @@
                 <a href="#" data-content='announcements'>ANNOUNCEMENTS</a>
                 <a href="#" data-content='calendar'>CALENDAR</a>
                 <a href="#" data-content='resources'>RESOURCES</a>
+                <div class="indicator"></div>
             </nav>
         </div>
 
     </body>
     <script src="theme-switch.js"></script>
-    <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const username = sessionStorage.getItem('username');
-        if (username) {
-            const welcomeText = document.getElementById('welcome-text');
-            welcomeText.textContent += ` ${username.toUpperCase()}`;
-        }
-    });
-</script>
-<script>
-    window.addEventListener('load', function () {
-        const loadingScreen = document.getElementById('loading-screen');
-        const mainContent = document.getElementById('main-content');
-
-        setTimeout(() => {
-            loadingScreen.classList.add('fade-out');
-            mainContent.classList.add('fade-in');
-
-            // Hide the loading screen after the fade-out transition
-            loadingScreen.addEventListener('transitionend', () => {
-                loadingScreen.style.display = 'none';
-                mainContent.style.opacity = '1'; // Ensure main content is visible
-            });
-        }, 3000);
-    });
-    </script>
+    <script src="loading.js"></script>
+    <script src="dashboard.js"></script>
 </html>
