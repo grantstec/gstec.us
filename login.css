@@ -75,7 +75,7 @@ h1 {
     margin: 0 auto;
     display: block;
     background-color: var(--accent-color);
-    color: white;
+    color: var(--font-color);
     
 
 }
