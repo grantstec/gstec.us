@@ -138,7 +138,7 @@ body {
     font: var(--h2);
     font-family: "PCap Terminal";
     text-align: left;
-    margin-top: 50px;
+    margin-top: 30px;
     margin-left: 20px;
     letter-spacing: 2px;
 }
@@ -235,6 +235,7 @@ input:checked+.slider:before {
     display: flex;
     justify-content: center;
     position: relative;
+    top:-25px;
 }
 
 .maincontent nav a {
@@ -261,13 +262,14 @@ input:checked+.slider:before {
     width: 100%;
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+    height: 100%;
 }
 
 .content-card {
     visibility: hidden;
     opacity: 0;
     width: 80%;
+
     padding: 20px;
     background-color: var(--accent-color);
     border-radius: 10px;
