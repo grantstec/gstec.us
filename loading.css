@@ -5,15 +5,18 @@ html,
     --font-color: #292929;
     --bg-color: #ffffff;
     --heading-color: #292929;
-}
-
-[data-theme="dark"] {
+    --accent-color: #E3E3E3;
+    
+  }
+  
+  [data-theme="dark"] {
     --primary-color: #0037FF;
     --secondary-color: #7EA2FF;
     --font-color: #ffffff;
     --bg-color: #292929;
     --heading-color: #292929;
-}
+    --accent-color: #363636;
+  }
 
 body {
     width: 100%;
@@ -262,16 +265,18 @@ input:checked+.slider:before {
 }
 
 .content-card {
-    display: none;
+    visibility: hidden;
+    opacity: 0;
     width: 80%;
     padding: 20px;
-    background-color: var(--card-bg-color);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    transition: opacity 0.3s ease;
+    background-color: var(--accent-color);
+    border-radius: 10px;
+    transition: opacity 0.75s ease-in-out, visibility 0.75s ease-in-out;
+    position: absolute;
 }
 
 .content-card.active {
-    display: block;
+    visibility: visible;
     opacity: 1;
+    position: relative;
 }

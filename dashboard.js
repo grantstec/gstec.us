@@ -32,10 +32,15 @@ document.addEventListener('DOMContentLoaded', function () {
     function showContent(contentId) {
         contentCards.forEach(card => {
             card.classList.remove('active');
-            if (card.id === contentId) {
-                card.classList.add('active');
-            }
         });
+    
+        setTimeout(() => {
+            contentCards.forEach(card => {
+                if (card.id === contentId) {
+                    card.classList.add('active');
+                }
+            });
+        }, 500); 
     }
 
     const activeLink = document.querySelector('.maincontent nav a.active') || navLinks[0];
