@@ -9,37 +9,22 @@
 </head>
 <body>
     <div class="loadingScreen">
-        <!--My content is the word "soundscape" but the o is replaced with a disc-->
-              <h1>WELCOME BACK</h1>
+            <h1 id="welcome-text">WELCOME BACK</h1>
               <div class="logo">
                 <img src="BHlogolarge.png" alt="Blue Horizon Logo">
             </div>
             <div class="loader"></div>
-            <div id="username-display"></div>
-            <script>
-                document.getElementById('login-form').addEventListener('submit', async (event) => {
-                  event.preventDefault();
-                  const formData = new FormData(event.target);
-                  const data = Object.fromEntries(formData);
-                
-                  const response = await fetch('/login', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(data),
-                  });
-                
-                  if (response.ok) {
-                    const username = data.username; // Get the username from the form data
-                    document.getElementById('username-display').textContent = `Welcome, ${username}!`; // Display the username
-                    alert('Login successful');
-                    window.location.href = "dashboard.html";
-                  } else {
-                    alert('Invalid credentials');
-                  }
-                });
-              </script>
             </div>
 
 </body>
 <script src="theme-switch.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const username = localStorage.getItem('username');
+        if (username) {
+            const welcomeText = document.getElementById('welcome-text');
+            welcomeText.textContent += `, ${username.toUpperCase()}`;
+        }
+    });
+</script>
 </html>
