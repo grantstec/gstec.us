@@ -1,6 +1,6 @@
 async function fetchDeadlines(username) {
     try {
-        const response = await fetch(`/fetchDeadlines?username=${username}`);
+        const response = await fetch(`/fetchdeadlines?username=${username}`);
         const responseText = await response.text();
         console.log('Response text:', responseText); // Log the raw response text
         
