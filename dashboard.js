@@ -31,7 +31,7 @@ function updateDeadlines(deadlines) {
 
     if (deadlines.length === 0) {
         const noDeadlinesMessage = document.createElement('div');
-        noDeadlinesMessage.textContent = 'No deadlines found.';
+        noDeadlinesMessage.textContent = 'NO DEADLINES FOUND.'; // Change message to uppercase
         deadlineContainer.appendChild(noDeadlinesMessage);
         return;
     }
@@ -42,11 +42,11 @@ function updateDeadlines(deadlines) {
 
         const deadlineDate = document.createElement('div');
         deadlineDate.classList.add('deadlinedate');
-        deadlineDate.textContent = deadline.user_deadline_date;
+        deadlineDate.textContent = deadline.user_deadline_date.toUpperCase(); // Convert date to uppercase
 
         const deadlineInfo = document.createElement('div');
         deadlineInfo.classList.add('deadline');
-        deadlineInfo.textContent = deadline.user_deadline_info;
+        deadlineInfo.textContent = deadline.user_deadline_info.toUpperCase(); // Convert info to uppercase
 
         deadlineBlock.appendChild(deadlineDate);
         deadlineBlock.appendChild(deadlineInfo);
