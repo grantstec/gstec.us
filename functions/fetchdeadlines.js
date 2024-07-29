@@ -1,6 +1,6 @@
-export async function onRequestGet(context) {
+export async function onRequestPost(context) {
     const { bhdb } = context.env;
-    const username = context.request.url.searchParams.get('username'); // Correctly get the username from query params
+    const {username} = sessionStorage.getItem('username');
   
     const query = `
       SELECT user_deadline_date, user_deadline_info FROM ${username}_user
