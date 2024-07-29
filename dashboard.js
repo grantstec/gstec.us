@@ -1,9 +1,9 @@
 async function fetchDeadlines(username) {
     try {
-        const response = await fetch(`/fetchdeadlines`, {
+        const response = await fetch(`/fetchdeadlines?username=${encodeURIComponent(username)}`, {
             method: 'GET',
-            headers: {'Content-Type': 'application/json',},            
-    });
+            headers: {'Content-Type': 'application/json'},
+        });
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
@@ -46,9 +46,12 @@ async function fetchDeadlines(username) {
   
   document.addEventListener('DOMContentLoaded', function () {
     const username = sessionStorage.getItem('username');
-    fetchDeadlines(username);
-
-  })
+    if (username) {
+        fetchDeadlines(username);
+    } else {
+        console.error('Username not found in sessionStorage');
+    }
+});
 
 function startCountdown() {
     const countdownElement = document.getElementById('countdown-timer');
