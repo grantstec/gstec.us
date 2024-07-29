@@ -8,7 +8,7 @@ export async function onRequestGet(context) {
     }
 
     const query = `
-      SELECT user_deadline_date, user_deadline_info FROM test_user WHERE username = ?
+      SELECT user_deadline_date, user_deadline_info FROM deadline_data WHERE username = ?
     `;
     const params = [username];
 
