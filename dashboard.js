@@ -1,19 +1,19 @@
 async function fetchDeadlines(username) {
     try {
-        const response = await fetch(`/fetchDeadlines?username=${username}`);
+        const response = await fetch(`/fetchDeadlines?username=${username}`); // i hate this so much this shit make no sense but it work like my ex 
         const responseText = await response.text();
-        console.log('Response text:', responseText); // Log the raw response text
+        console.log('Response text:', responseText); 
         
         try {
             const jsonResponse = JSON.parse(responseText);
-            console.log('Parsed JSON response:', jsonResponse); // Log the parsed JSON response
+            console.log('Parsed JSON response:', jsonResponse); 
             
             if (jsonResponse.results && Array.isArray(jsonResponse.results)) {
-                console.log('Results array:', jsonResponse.results); // Log the results array
+                console.log('Results array:', jsonResponse.results); 
                 updateDeadlines(jsonResponse.results);
             } else {
                 console.error('No deadlines found for the user.');
-                updateDeadlines([]); // Clear existing content if no deadlines are found
+                updateDeadlines([]); 
             }
         } catch (jsonError) {
             console.error('Error parsing JSON:', jsonError);
@@ -25,9 +25,9 @@ async function fetchDeadlines(username) {
 }
 
 function updateDeadlines(deadlines) {
-    console.log('Updating deadlines with:', deadlines); // Log the deadlines being updated
+    console.log('Updating deadlines with:', deadlines); 
     const deadlineContainer = document.querySelector('.yourdeadlines');
-    deadlineContainer.innerHTML = ''; // Clear existing content
+    deadlineContainer.innerHTML = ''; 
 
     const heading = document.createElement('h3');
     heading.textContent = 'YOUR DEADLINES';
@@ -35,7 +35,7 @@ function updateDeadlines(deadlines) {
 
     if (deadlines.length === 0) {
         const noDeadlinesMessage = document.createElement('div');
-        noDeadlinesMessage.textContent = 'NO DEADLINES FOUND.'; // Change message to uppercase
+        noDeadlinesMessage.textContent = 'NO DEADLINES FOUND.'; 
         deadlineContainer.appendChild(noDeadlinesMessage);
         return;
     }
