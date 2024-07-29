@@ -1,19 +1,19 @@
 async function fetchDeadlines(username) {
     try {
-        const response = await fetch(`/fetchDeadlines?username=${username}`); // i hate this so much this shit make no sense but it work like my ex 
+        const response = await fetch(`/fetchdeadlines?username=${username}`);
         const responseText = await response.text();
-        console.log('Response text:', responseText); 
+        console.log('Response text:', responseText); // Log the raw response text
         
         try {
             const jsonResponse = JSON.parse(responseText);
-            console.log('Parsed JSON response:', jsonResponse); 
+            console.log('Parsed JSON response:', jsonResponse); // Log the parsed JSON response
             
             if (jsonResponse.results && Array.isArray(jsonResponse.results)) {
-                console.log('Results array:', jsonResponse.results); 
+                console.log('Results array:', jsonResponse.results); // Log the results array
                 updateDeadlines(jsonResponse.results);
             } else {
                 console.error('No deadlines found for the user.');
-                updateDeadlines([]); 
+                updateDeadlines([]); // Clear existing content if no deadlines are found
             }
         } catch (jsonError) {
             console.error('Error parsing JSON:', jsonError);
@@ -25,17 +25,13 @@ async function fetchDeadlines(username) {
 }
 
 function updateDeadlines(deadlines) {
-    console.log('Updating deadlines with:', deadlines); 
+    console.log('Updating deadlines with:', deadlines); // Log the deadlines being updated
     const deadlineContainer = document.querySelector('.yourdeadlines');
-    deadlineContainer.innerHTML = ''; 
-
-    const heading = document.createElement('h3');
-    heading.textContent = 'YOUR DEADLINES';
-    deadlineContainer.appendChild(heading);
+    deadlineContainer.innerHTML = ''; // Clear existing content
 
     if (deadlines.length === 0) {
         const noDeadlinesMessage = document.createElement('div');
-        noDeadlinesMessage.textContent = 'NO DEADLINES FOUND.'; 
+        noDeadlinesMessage.textContent = 'NO DEADLINES FOUND.'; // Change message to uppercase
         deadlineContainer.appendChild(noDeadlinesMessage);
         return;
     }
@@ -67,7 +63,11 @@ function updateDeadlines(deadlines) {
 
 document.addEventListener('DOMContentLoaded', function () {
     const username = sessionStorage.getItem('username');
-    fetchDeadlines(username);
+    if (username) {
+        fetchDeadlines(username);
+    } else {
+        console.error('Username not found in sessionStorage');
+    }
 });
 
 function startCountdown() {
