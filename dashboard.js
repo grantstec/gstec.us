@@ -1,3 +1,44 @@
+async function fetchDeadlines(username) {
+    try {
+        const response = await fetch(`/functions/fetchDeadlines?username=${username}`);
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+      }
+      const deadlines = await response.json();
+      updateDeadlines(deadlines);
+    } catch (error) {
+      console.error('Error fetching deadlines:', error);
+    }
+  }
+  
+  function updateDeadlines(deadlines) {
+    const deadlineContainer = document.querySelector('.yourdeadlines');
+    deadlineContainer.innerHTML = ''; // Clear existing content
+  
+    deadlines.forEach(deadline => {
+      const deadlineBlock = document.createElement('div');
+      deadlineBlock.classList.add('deadlineblock');
+  
+      const deadlineDate = document.createElement('div');
+      deadlineDate.classList.add('deadlinedate');
+      deadlineDate.textContent = deadline.user_deadline_date;
+  
+      const deadlineInfo = document.createElement('div');
+      deadlineInfo.classList.add('deadline');
+      deadlineInfo.textContent = deadline.user_deadline_info;
+  
+      deadlineBlock.appendChild(deadlineDate);
+      deadlineBlock.appendChild(deadlineInfo);
+      deadlineContainer.appendChild(deadlineBlock);
+    });
+  }
+  
+  document.addEventListener('DOMContentLoaded', function () {
+    const username = sessionStorage.getItem('username');
+    fetchDeadlines(username);
+
+  })
+
 function startCountdown() {
     const countdownElement = document.getElementById('countdown-timer');
     if (!countdownElement) {
@@ -5,12 +46,12 @@ function startCountdown() {
         return;
     }
     const targetDate = new Date('June 5, 2025 11:00:00').getTime();
-    console.log('Target date:', targetDate);
+    // console.log('Target date:', targetDate);
 
     function updateCountdown() {
         const now = new Date().getTime();
         const distance = targetDate - now;
-        console.log('Time remaining:', distance);
+        // console.log('Time remaining:', distance);
 
         if (distance < 0) {
             countdownElement.innerHTML = "EXPIRED";
