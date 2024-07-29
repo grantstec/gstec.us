@@ -1,6 +1,6 @@
 async function fetchDeadlines(username) {
     try {
-        const response = await fetch(`/functions/fetchdeadlines?username=${username}`);
+        const response = await fetch(`/fetchdeadlines`);
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
