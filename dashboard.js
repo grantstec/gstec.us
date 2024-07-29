@@ -1,15 +1,23 @@
 async function fetchDeadlines(username) {
     try {
-        const response = await fetch(`/functions/fetchDeadlines?username=${username}`);
+        const response = await fetch(`/functions/fetchdeadlines?username=${username}`);
         if (!response.ok) {
             throw new Error('Network response was not ok');
-      }
-      const deadlines = await response.json();
-      updateDeadlines(deadlines);
+        }
+        
+        const responseText = await response.text();
+        
+        try {
+            const deadlines = JSON.parse(responseText);
+            updateDeadlines(deadlines);
+        } catch (jsonError) {
+            console.error('Error parsing JSON:', jsonError);
+            console.error('Response text:', responseText);
+        }
     } catch (error) {
-      console.error('Error fetching deadlines:', error);
+        console.error('Error fetching deadlines:', error);
     }
-  }
+}
   
   function updateDeadlines(deadlines) {
     const deadlineContainer = document.querySelector('.yourdeadlines');
