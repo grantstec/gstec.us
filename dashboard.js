@@ -1,6 +1,6 @@
 async function fetchDeadlines(username) {
     try {
-        const response = await fetch(`/fetchdeadlines?username=${username}`);
+        const response = await fetch(`/fetchDeadlines?username=${username}`);
         const responseText = await response.text();
         console.log('Response text:', responseText); // Log the raw response text
         
@@ -23,6 +23,7 @@ async function fetchDeadlines(username) {
         console.error('Error fetching deadlines:', error);
     }
 }
+
 function updateDeadlines(deadlines) {
     console.log('Updating deadlines with:', deadlines); // Log the deadlines being updated
     const deadlineContainer = document.querySelector('.yourdeadlines');
@@ -38,6 +39,13 @@ function updateDeadlines(deadlines) {
         deadlineContainer.appendChild(noDeadlinesMessage);
         return;
     }
+
+    // Sort deadlines by date
+    deadlines.sort((a, b) => {
+        const dateA = new Date(a.user_deadline_date + ' ' + new Date().getFullYear());
+        const dateB = new Date(b.user_deadline_date + ' ' + new Date().getFullYear());
+        return dateA - dateB;
+    });
 
     deadlines.forEach(deadline => {
         const deadlineBlock = document.createElement('div');
@@ -59,11 +67,7 @@ function updateDeadlines(deadlines) {
 
 document.addEventListener('DOMContentLoaded', function () {
     const username = sessionStorage.getItem('username');
-    if (username) {
-        fetchDeadlines(username);
-    } else {
-        console.error('Username not found in sessionStorage');
-    }
+    fetchDeadlines(username);
 });
 
 function startCountdown() {
