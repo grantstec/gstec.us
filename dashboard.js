@@ -36,10 +36,17 @@ function updateDeadlines(deadlines) {
         return;
     }
 
+    // Helper function to parse month-day strings into Date objects
+    function parseDate(dateStr) {
+        const [month, day] = dateStr.split(' ');
+        const monthIndex = new Date(Date.parse(month + " 1, 2023")).getMonth(); // Get month index
+        return new Date(new Date().getFullYear(), monthIndex, parseInt(day));
+    }
+
     // Sort deadlines by date
     deadlines.sort((a, b) => {
-        const dateA = new Date(a.user_deadline_date + ' ' + new Date().getFullYear());
-        const dateB = new Date(b.user_deadline_date + ' ' + new Date().getFullYear());
+        const dateA = parseDate(a.user_deadline_date);
+        const dateB = parseDate(b.user_deadline_date);
         return dateA - dateB;
     });
 
