@@ -1,6 +1,9 @@
 async function fetchDeadlines(username) {
     try {
-        const response = await fetch(`/fetchdeadlines?username=${encodeURIComponent(username)}`);
+        const response = await fetch(`/fetchdeadlines`, {
+            method: 'GET',
+            headers: {'Content-Type': 'application/json',},            
+    });
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
