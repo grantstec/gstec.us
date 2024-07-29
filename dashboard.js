@@ -1,18 +1,20 @@
 async function fetchDeadlines(username) {
     try {
-        const response = await fetch(`/fetchdeadlines?username=${encodeURIComponent(username)}`, {
-            method: 'GET',
-            headers: {'Content-Type': 'application/json'},
-        });
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        
+        const response = await fetch(`/fetchDeadlines?username=${username}`);
         const responseText = await response.text();
+        console.log('Response text:', responseText); // Log the raw response text
         
         try {
-            const deadlines = JSON.parse(responseText);
-            updateDeadlines(deadlines);
+            const jsonResponse = JSON.parse(responseText);
+            console.log('Parsed JSON response:', jsonResponse); // Log the parsed JSON response
+            
+            if (jsonResponse.results && Array.isArray(jsonResponse.results)) {
+                console.log('Results array:', jsonResponse.results); // Log the results array
+                updateDeadlines(jsonResponse.results);
+            } else {
+                console.error('No deadlines found for the user.');
+                updateDeadlines([]); // Clear existing content if no deadlines are found
+            }
         } catch (jsonError) {
             console.error('Error parsing JSON:', jsonError);
             console.error('Response text:', responseText);
@@ -21,30 +23,38 @@ async function fetchDeadlines(username) {
         console.error('Error fetching deadlines:', error);
     }
 }
-  
-  function updateDeadlines(deadlines) {
+
+function updateDeadlines(deadlines) {
+    console.log('Updating deadlines with:', deadlines); // Log the deadlines being updated
     const deadlineContainer = document.querySelector('.yourdeadlines');
     deadlineContainer.innerHTML = ''; // Clear existing content
-  
+
+    if (deadlines.length === 0) {
+        const noDeadlinesMessage = document.createElement('div');
+        noDeadlinesMessage.textContent = 'No deadlines found.';
+        deadlineContainer.appendChild(noDeadlinesMessage);
+        return;
+    }
+
     deadlines.forEach(deadline => {
-      const deadlineBlock = document.createElement('div');
-      deadlineBlock.classList.add('deadlineblock');
-  
-      const deadlineDate = document.createElement('div');
-      deadlineDate.classList.add('deadlinedate');
-      deadlineDate.textContent = deadline.user_deadline_date;
-  
-      const deadlineInfo = document.createElement('div');
-      deadlineInfo.classList.add('deadline');
-      deadlineInfo.textContent = deadline.user_deadline_info;
-  
-      deadlineBlock.appendChild(deadlineDate);
-      deadlineBlock.appendChild(deadlineInfo);
-      deadlineContainer.appendChild(deadlineBlock);
+        const deadlineBlock = document.createElement('div');
+        deadlineBlock.classList.add('deadlineblock');
+
+        const deadlineDate = document.createElement('div');
+        deadlineDate.classList.add('deadlinedate');
+        deadlineDate.textContent = deadline.user_deadline_date;
+
+        const deadlineInfo = document.createElement('div');
+        deadlineInfo.classList.add('deadline');
+        deadlineInfo.textContent = deadline.user_deadline_info;
+
+        deadlineBlock.appendChild(deadlineDate);
+        deadlineBlock.appendChild(deadlineInfo);
+        deadlineContainer.appendChild(deadlineBlock);
     });
-  }
-  
-  document.addEventListener('DOMContentLoaded', function () {
+}
+
+document.addEventListener('DOMContentLoaded', function () {
     const username = sessionStorage.getItem('username');
     if (username) {
         fetchDeadlines(username);
