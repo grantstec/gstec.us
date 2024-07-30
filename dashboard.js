@@ -73,11 +73,16 @@ function updateDeadlines(deadlines) {
 }
 
 function adjustPaddingBottom() {
+    console.log('adjustPaddingBottom function called'); // Log function call
     const deadlineBlocks = document.querySelectorAll('.deadlineblock');
+    console.log('Found deadline blocks:', deadlineBlocks); // Log found elements
 
     deadlineBlocks.forEach(block => {
         const deadlinedates = block.querySelectorAll('.deadlinedate');
         const deadlines = block.querySelectorAll('.deadline');
+
+        console.log('Found deadlinedates:', deadlinedates); // Log found elements
+        console.log('Found deadlines:', deadlines); // Log found elements
 
         let maxHeight = 0;
 
@@ -89,17 +94,24 @@ function adjustPaddingBottom() {
             maxHeight = Math.max(maxHeight, deadline.offsetHeight);
         });
 
+        console.log('Max height:', maxHeight); // Log max height
+
         // Adjust padding-bottom to make heights equal
         deadlinedates.forEach(date => {
             const heightDifference = maxHeight - date.offsetHeight;
             date.style.paddingBottom = `${5 + heightDifference}px`;
+            console.log('Adjusted padding for date:', date, 'Padding:', date.style.paddingBottom); // Log padding adjustment
         });
         deadlines.forEach(deadline => {
             const heightDifference = maxHeight - deadline.offsetHeight;
             deadline.style.paddingBottom = `${5 + heightDifference}px`;
+            console.log('Adjusted padding for deadline:', deadline, 'Padding:', deadline.style.paddingBottom); // Log padding adjustment
         });
     });
 }
+
+// Call the function after the content is loaded
+document.addEventListener('DOMContentLoaded', adjustPaddingBottom);
 
 // Call the function after the content is loaded
 document.addEventListener('DOMContentLoaded', adjustPaddingBottom);
