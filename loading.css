@@ -357,6 +357,24 @@ input:checked+.slider:before {
     margin-top: 3px;
 }
 
+.deadlineblock {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    vertical-align: center;
+}
+
+.deadlinedate, .deadline {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    text-align: center; /* Ensure text is centered */
+    padding: 10px; /* Adjust padding as needed */
+    vertical-align: center; /* Center vertically */
+}
+
 .deadlinedate{
     color: var(--bg-color);
     font: var(--small);
@@ -384,7 +402,7 @@ input:checked+.slider:before {
     font-family: "PCap Terminal";
     position: relative;
     display: inline-flex;
-    justify-content: left;
+    justify-content: center;
     background-color: var(--font-color);
     border-radius: 10px;
     padding-left: 10px;
@@ -393,5 +411,7 @@ input:checked+.slider:before {
     padding-bottom: 5px;
     margin-right: 10px;
     margin-bottom: 5px;
+    vertical-align: center;
+
 }
 
