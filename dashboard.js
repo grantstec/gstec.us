@@ -29,10 +29,6 @@ function updateDeadlines(deadlines) {
     const deadlineContainer = document.querySelector('.deadlineblock');
     deadlineContainer.innerHTML = ''; 
 
-    const heading = document.createElement('h3');
-    heading.textContent = 'YOUR DEADLINES';
-    deadlineContainer.appendChild(heading);
-
     if (deadlines.length === 0) {
         const noDeadlinesMessage = document.createElement('div');
         noDeadlinesMessage.textContent = 'NO DEADLINES FOUND.'; // Change message to uppercase
