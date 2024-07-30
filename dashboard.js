@@ -32,7 +32,6 @@ function updateDeadlines(deadlines) {
     const heading = document.createElement('h3');
     heading.textContent = 'YOUR DEADLINES';
     deadlineContainer.appendChild(heading);
-    deadlineContainer.innerHTML = ''; // Clear existing content
 
     if (deadlines.length === 0) {
         const noDeadlinesMessage = document.createElement('div');
