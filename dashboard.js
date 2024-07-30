@@ -26,8 +26,12 @@ async function fetchDeadlines(username) {
 
 function updateDeadlines(deadlines) {
     console.log('Updating deadlines with:', deadlines); // Log the deadlines being updated
-    const deadlineContainer = document.querySelector('.deadlineblock');
+    const deadlineContainer = document.querySelector('.yourdeadlines');
     deadlineContainer.innerHTML = ''; 
+
+    const heading = document.createElement('h3');
+    heading.textContent = 'YOUR DEADLINES';
+    deadlineContainer.appendChild(heading);
 
     if (deadlines.length === 0) {
         const noDeadlinesMessage = document.createElement('div');
@@ -172,3 +176,41 @@ document.addEventListener('DOMContentLoaded', function () {
         showContent(activeLink.getAttribute('data-content'));
     }
 });
+
+function adjustPaddingBottom() {
+    console.log('adjustPaddingBottom function called'); // Log function call
+    const deadlineBlocks = document.querySelectorAll('.deadlineblock');
+    console.log('Found deadline blocks:', deadlineBlocks); // Log found elements
+
+    deadlineBlocks.forEach(block => {
+        const deadlinedates = block.querySelectorAll('.deadlinedate');
+        const deadlines = block.querySelectorAll('.deadline');
+
+        console.log('Found deadlinedates:', deadlinedates); // Log found elements
+        console.log('Found deadlines:', deadlines); // Log found elements
+
+        let maxHeight = 0;
+
+        // Find the maximum height among deadlinedate and deadline elements
+        deadlinedates.forEach(date => {
+            maxHeight = Math.max(maxHeight, date.offsetHeight);
+        });
+        deadlines.forEach(deadline => {
+            maxHeight = Math.max(maxHeight, deadline.offsetHeight);
+        });
+
+        console.log('Max height:', maxHeight); // Log max height
+
+        // Adjust padding-bottom to make heights equal
+        deadlinedates.forEach(date => {
+            const heightDifference = maxHeight - date.offsetHeight;
+            date.style.paddingBottom = `${5 + heightDifference}px`;
+            console.log('Adjusted padding for date:', date, 'Padding:', date.style.paddingBottom); // Log padding adjustment
+        });
+        deadlines.forEach(deadline => {
+            const heightDifference = maxHeight - deadline.offsetHeight;
+            deadline.style.paddingBottom = `${5 + heightDifference}px`;
+            console.log('Adjusted padding for deadline:', deadline, 'Padding:', deadline.style.paddingBottom); // Log padding adjustment
+        });
+    });
+}
