@@ -79,24 +79,28 @@ h1 {
     
 
 }
-.password{
-    position: relative;
-    top: 120px;
-    font: var(--p);
-    font-family: "PCap Terminal";
-    letter-spacing: 0.5px;
-    line-height: 40px;
-    width: 260px;
-    border-radius: 10px;
-    border: none;
-    padding-left: 40px;
-    margin: 0 auto;
-    display: block;
-    background-color: var(--accent-color);
-    color: var(--font-color);
-    
-    
 
+
+.password {
+  font: var(--p);
+  font-family: Verdana; 
+  position: relative;
+  top: 120px;
+  letter-spacing: 0.5px;
+  line-height: 40px;
+  width: 260px;
+  border-radius: 10px;
+  border: none;
+  padding-left: 40px;
+  margin: 0 auto;
+  display: block;
+  background-color: var(--accent-color);
+  color: var(--font-color);
+}
+
+
+.password::placeholder {
+  font-family: "PCap Terminal";
 }
 
 .login{
@@ -207,3 +211,4 @@ border-color: var(--primary-color);
 color: var(--primary-color);
 cursor: pointer;
 }
+
