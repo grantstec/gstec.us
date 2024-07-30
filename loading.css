@@ -362,7 +362,6 @@ input:checked+.slider:before {
     flex-direction: row;
     justify-content: center; /* Center vertically */
     align-items: center; /* Center horizontally */
-    vertical-align: center;
 }
 
 .deadlinedate, .deadline {
@@ -371,8 +370,7 @@ input:checked+.slider:before {
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
     text-align: center; /* Ensure text is centered */
-    padding: 10px; /* Adjust padding as needed */
-    vertical-align: center; /* Center vertically */
+
 }
 
 .deadlinedate{
