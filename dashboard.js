@@ -26,12 +26,8 @@ async function fetchDeadlines(username) {
 
 function updateDeadlines(deadlines) {
     console.log('Updating deadlines with:', deadlines); // Log the deadlines being updated
-    const deadlineContainer = document.querySelector('.yourdeadlines');
+    const deadlineContainer = document.querySelector('.deadlineblock');
     deadlineContainer.innerHTML = ''; 
-
-    const heading = document.createElement('h3');
-    heading.textContent = 'YOUR DEADLINES';
-    deadlineContainer.appendChild(heading);
 
     if (deadlines.length === 0) {
         const noDeadlinesMessage = document.createElement('div');
