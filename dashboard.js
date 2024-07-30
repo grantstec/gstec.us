@@ -204,13 +204,13 @@ function adjustPaddingBottom() {
         // Adjust padding-bottom to make heights equal
         deadlinedates.forEach(date => {
             const heightDifference = maxHeight - date.offsetHeight;
-            date.style.paddingBottom = `${5 + heightDifference}px`;
-            console.log('Adjusted padding for date:', date, 'Padding:', date.style.paddingBottom); // Log padding adjustment
+            date.style.paddingTop = `${5 + heightDifference}px`;
+            console.log('Adjusted padding for date:', date, 'Padding:', date.style.paddingTop); // Log padding adjustment
         });
         deadlines.forEach(deadline => {
             const heightDifference = maxHeight - deadline.offsetHeight;
-            deadline.style.paddingBottom = `${5 + heightDifference}px`;
-            console.log('Adjusted padding for deadline:', deadline, 'Padding:', deadline.style.paddingBottom); // Log padding adjustment
+            deadline.style.paddingTop = `${5 + heightDifference}px`;
+            console.log('Adjusted padding for deadline:', deadline, 'Padding:', deadline.style.paddingTop); // Log padding adjustment
         });
     });
 }
