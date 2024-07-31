@@ -143,7 +143,7 @@ function updateTeamDeadlines(deadlines) {
 
         const deadlineInfo = document.createElement('div');
         deadlineInfo.classList.add('deadline');
-        deadlineInfo.textContent = `${deadline.user_deadline_title}: ${deadline.user_deadline_description}`;
+        deadlineInfo.textContent = deadline.user_deadline_info.toUpperCase(); 
 
         deadlineBlock.appendChild(deadlineDate);
         deadlineBlock.appendChild(deadlineInfo);
