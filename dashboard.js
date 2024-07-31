@@ -216,16 +216,20 @@ function adjustPaddingBottom() {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    adjustPaddingBottom(); // Call the function after the content is loaded
-    let hasCheckedForChanges = false;
+    adjustPaddingBottom(); // Initial call after the content is loaded
 
-    setInterval(function () {
-        if (!hasCheckedForChanges) {
-            const deadlineBlocks = document.querySelectorAll('.deadlineblock');
-            if (deadlineBlocks.length > 0) {
-                adjustPaddingBottom(); // Call the function to check for new data in deadlineblock
+    // Set up a MutationObserver to watch for changes in the DOM
+    const observer = new MutationObserver(function (mutations) {
+        mutations.forEach(function (mutation) {
+            if (mutation.addedNodes.length) {
+                adjustPaddingBottom(); // Call the function when new nodes are added
             }
-            hasCheckedForChanges = true;
-        }
-    }, 5000); // Check every 5 seconds for new data
+        });
+    });
+
+    // Start observing the document body for changes
+    observer.observe(document.body, {
+        childList: true,
+        subtree: true
+    });
 });
