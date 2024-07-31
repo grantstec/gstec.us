@@ -218,4 +218,11 @@ function adjustPaddingBottom() {
 
 document.addEventListener('DOMContentLoaded', function () {
     adjustPaddingBottom(); // Call the function after the content is loaded
+
+    setInterval(function () {
+        const deadlineBlocks = document.querySelectorAll('.deadlineblock');
+        if (deadlineBlocks.length > 0) {
+            adjustPaddingBottom(); // Call the function to check for new data in deadlineblock
+        }
+    }, 50); // Check every 5 seconds for new data
 });
