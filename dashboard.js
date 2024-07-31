@@ -171,22 +171,26 @@ function adjustPaddingBottom() {
             console.log('Date rect:', dateRect);
             console.log('Deadline rect:', deadlineRect);
 
-            const maxHeight = Math.max(dateRect.height, deadlineRect.height);
-            console.log('Max height:', maxHeight);
+            if (dateRect.height !== deadlineRect.height) {
+                const maxHeight = Math.max(dateRect.height, deadlineRect.height);
+                console.log('Max height:', maxHeight);
 
-            const datePadding = (maxHeight - dateRect.height) / 2 + 5;
-            const deadlinePadding = (maxHeight - deadlineRect.height) / 2 + 5;
+                const datePadding = (maxHeight - dateRect.height) / 2 + 5;
+                const deadlinePadding = (maxHeight - deadlineRect.height) / 2 + 5;
 
-            if (dateRect.height < deadlineRect.height) {
-                dateElement.style.paddingBottom = `${datePadding}px`;
-                deadlineElement.style.paddingBottom = '0px';
+                if (dateRect.height < deadlineRect.height) {
+                    dateElement.style.paddingBottom = `${datePadding}px`;
+                    deadlineElement.style.paddingBottom = '0px';
+                } else {
+                    dateElement.style.paddingBottom = '0px';
+                    deadlineElement.style.paddingBottom = `${deadlinePadding}px`;
+                }
+
+                console.log(`Adjusted padding for date: ${dateElement.outerHTML} Padding: ${datePadding}px`);
+                console.log(`Adjusted padding for deadline: ${deadlineElement.outerHTML} Padding: ${deadlinePadding}px`);
             } else {
-                dateElement.style.paddingBottom = '0px';
-                deadlineElement.style.paddingBottom = `${deadlinePadding}px`;
+                console.log('Heights are already equal, no adjustment needed.');
             }
-
-            console.log(`Adjusted padding for date: ${dateElement.outerHTML} Padding: ${datePadding}px`);
-            console.log(`Adjusted padding for deadline: ${deadlineElement.outerHTML} Padding: ${deadlinePadding}px`);
         }
     });
 }
