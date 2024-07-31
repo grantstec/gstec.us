@@ -2,14 +2,14 @@ async function fetchDeadlines(username) {
     try {
         const response = await fetch(`/fetchdeadlines?username=${username}`);
         const responseText = await response.text();
-        console.log('Response text:', responseText); // Log the raw response text
+        console.log('Response text:', responseText); 
         
         try {
             const jsonResponse = JSON.parse(responseText);
-            console.log('Parsed JSON response:', jsonResponse); // Log the parsed JSON response
+            console.log('Parsed JSON response:', jsonResponse);
             
             if (jsonResponse.results && Array.isArray(jsonResponse.results)) {
-                console.log('Results array:', jsonResponse.results); // Log the results array
+                console.log('Results array:', jsonResponse.results); 
                 updateDeadlines(jsonResponse.results);
             } else {
                 console.error('No deadlines found for the user.');
@@ -25,7 +25,7 @@ async function fetchDeadlines(username) {
 }
 
 function updateDeadlines(deadlines) {
-    console.log('Updating deadlines with:', deadlines); // Log the deadlines being updated
+    console.log('Updating deadlines with:', deadlines); 
     const deadlineContainer = document.querySelector('.yourdeadlines');
     deadlineContainer.innerHTML = ''; 
 
@@ -35,7 +35,7 @@ function updateDeadlines(deadlines) {
 
     if (deadlines.length === 0) {
         const noDeadlinesMessage = document.createElement('div');
-        noDeadlinesMessage.textContent = 'NO DEADLINES FOUND.'; // Change message to uppercase
+        noDeadlinesMessage.textContent = 'NO DEADLINES FOUND.'; 
         deadlineContainer.appendChild(noDeadlinesMessage);
         return;
     }
@@ -60,11 +60,11 @@ function updateDeadlines(deadlines) {
 
         const deadlineDate = document.createElement('div');
         deadlineDate.classList.add('deadlinedate');
-        deadlineDate.textContent = deadline.user_deadline_date.toUpperCase(); // Convert date to uppercase
+        deadlineDate.textContent = deadline.user_deadline_date.toUpperCase(); // reminder convert to uppercase
 
         const deadlineInfo = document.createElement('div');
         deadlineInfo.classList.add('deadline');
-        deadlineInfo.textContent = deadline.user_deadline_info.toUpperCase(); // Convert info to uppercase
+        deadlineInfo.textContent = deadline.user_deadline_info.toUpperCase(); 
 
         deadlineBlock.appendChild(deadlineDate);
         deadlineBlock.appendChild(deadlineInfo);
@@ -73,7 +73,87 @@ function updateDeadlines(deadlines) {
 
     setTimeout(() => {
         adjustPaddingBottom();
-    }, 1000);
+    }, 1000); //this took three hours
+}
+
+//team deadline stuff
+async function fetchTeamDeadlines() {
+    try {
+        const response = await fetch(`/fetchdeadlines?username=team_deadline`);
+        const responseText = await response.text();
+        console.log('Team Response text:', responseText); 
+        
+        try {
+            const jsonResponse = JSON.parse(responseText);
+            console.log('Parsed Team JSON response:', jsonResponse);
+            
+            if (jsonResponse.results && Array.isArray(jsonResponse.results)) {
+                console.log('Team Results array:', jsonResponse.results); 
+                updateTeamDeadlines(jsonResponse.results);
+            } else {
+                console.error('No team deadlines found.');
+                updateTeamDeadlines([]); // Clear existing content if no deadlines are found
+            }
+        } catch (jsonError) {
+            console.error('Error parsing Team JSON:', jsonError);
+            console.error('Team Response text:', responseText);
+        }
+    } catch (error) {
+        console.error('Error fetching team deadlines:', error);
+    }
+}
+
+function updateTeamDeadlines(deadlines) {
+    console.log('Updating team deadlines with:', deadlines); 
+    const teamDeadlineContainer = document.querySelector('.teamdeadlines');
+    teamDeadlineContainer.innerHTML = ''; 
+
+    const heading = document.createElement('h3');
+    heading.textContent = 'TEAM DEADLINES';
+    teamDeadlineContainer.appendChild(heading);
+
+    if (deadlines.length === 0) {
+        const noDeadlinesMessage = document.createElement('div');
+        noDeadlinesMessage.textContent = 'NO TEAM DEADLINES FOUND.'; 
+        teamDeadlineContainer.appendChild(noDeadlinesMessage);
+        return;
+    }
+
+    // Helper function to parse month-day strings into Date objects
+    function parseDate(dateStr) {
+        const [month, day] = dateStr.split(' ');
+        const monthIndex = new Date(Date.parse(month + " 1, 2023")).getMonth(); // Get month index
+        return new Date(new Date().getFullYear(), monthIndex, parseInt(day));
+    }
+
+    // Sort deadlines by date
+    deadlines.sort((a, b) => {
+        const dateA = parseDate(a.user_deadline_date);
+        const dateB = parseDate(b.user_deadline_date);
+        return dateA - dateB;
+    });
+
+    deadlines.forEach(deadline => {
+        const deadlineBlock = document.createElement('div');
+        deadlineBlock.classList.add('deadlineblock');
+
+        const deadlineDate = document.createElement('div');
+        deadlineDate.classList.add('deadlinedate');
+        deadlineDate.textContent = deadline.user_deadline_date.toUpperCase(); // reminder convert to uppercase
+
+        const deadlineInfo = document.createElement('div');
+        deadlineInfo.classList.add('deadline');
+        deadlineInfo.textContent = `${deadline.user_deadline_title}: ${deadline.user_deadline_description}`;
+
+        deadlineBlock.appendChild(deadlineDate);
+        deadlineBlock.appendChild(deadlineInfo);
+        teamDeadlineContainer.appendChild(deadlineBlock);
+    });
+
+    // Call adjustPaddingBottom after updating team deadlines
+    setTimeout(() => {
+        adjustPaddingBottom();
+    }, 1000); // Delay to ensure DOM updates are rendered
 }
 
 function adjustPaddingBottom() {
@@ -104,7 +184,7 @@ function adjustPaddingBottom() {
         deadlinedates.forEach(date => {
             const rect = date.getBoundingClientRect();
             const heightDifference = maxHeight - rect.height;
-            date.style.paddingBottom = `${heightDifference + 5}px`; // Corrected variable name
+            date.style.paddingBottom = `${heightDifference + 5}px`; 
         });
         deadlines.forEach(deadline => {
             const rect = deadline.getBoundingClientRect();
@@ -116,16 +196,16 @@ function adjustPaddingBottom() {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    adjustPaddingBottom(); // Initial call after the content is loaded
+    adjustPaddingBottom(); // prob not needed anymore but i dont wanna fuck it up
 
 });
 
 
 
-// Call the function after the content is loaded
-document.addEventListener('DOMContentLoaded', adjustPaddingBottom);
 
-// Call the function after the content is loaded
+document.addEventListener('DOMContentLoaded', adjustPaddingBottom); //also prob not needed 
+
+
 document.addEventListener('DOMContentLoaded', adjustPaddingBottom);
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -166,7 +246,7 @@ function startCountdown() {
     }
 
     const interval = setInterval(updateCountdown, 1000);
-    updateCountdown(); // Initial call to display the timer immediately
+    updateCountdown();
 }
 
 document.addEventListener('DOMContentLoaded', function () {
