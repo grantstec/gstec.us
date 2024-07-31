@@ -186,12 +186,11 @@ function adjustPaddingBottom() {
         const deadlinedates = block.querySelectorAll('.deadlinedate');
         const deadlines = block.querySelectorAll('.deadline');
 
-        console.log('Found deadlinedates:', deadlinedates); // Log found elements
-        console.log('Found deadlines:', deadlines); // Log found elements
+        console.log('Found deadlinedates:', deadlinedates);
+        console.log('Found deadlines:', deadlines); 
 
         let maxHeight = 0;
 
-        // Find the maximum height among deadlinedate and deadline elements
         deadlinedates.forEach(date => {
             const rect = date.getBoundingClientRect();
             maxHeight = Math.max(maxHeight, rect.height);
@@ -201,22 +200,29 @@ function adjustPaddingBottom() {
             maxHeight = Math.max(maxHeight, rect.height);
         });
 
-        console.log('Max height:', maxHeight); // Log max height
+        console.log('Max height:', maxHeight); 
 
-        // Adjust padding-bottom to make heights equal
         deadlinedates.forEach(date => {
             const rect = date.getBoundingClientRect();
             const heightDifference = maxHeight - rect.height;
-            console.log('Height difference:', heightDifference);
             date.style.paddingBottom = `${heightDifference}px`;
-            console.log('Adjusted padding for date:', date, 'Padding:', date.style.paddingTop); // Log padding adjustment
         });
         deadlines.forEach(deadline => {
             const rect = deadline.getBoundingClientRect();
             const heightDifference = maxHeight - rect.height;
-            console.log('Height difference:', heightDifference); // Log height difference
             deadline.style.paddingBottom = `${heightDifference}px`;
-            console.log('Adjusted padding for deadline:', deadline, 'Padding:', deadline.style.paddingTop); // Log padding adjustment
+            console.log('Adjusted padding for deadline:', deadline, 'Padding:', deadline.style.paddingTop); 
         });
     });
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+    adjustPaddingBottom(); // Call the function after the content is loaded
+
+    setInterval(function () {
+        const deadlineBlocks = document.querySelectorAll('.deadlineblock');
+        if (deadlineBlocks.length > 0) {
+            adjustPaddingBottom(); // Call the function to check for new data in deadlineblock
+        }
+    }, 5000); // Check every 5 seconds for new data
+});
