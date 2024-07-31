@@ -131,6 +131,119 @@ body {
     width: 100vw;
 }
 
+label .menu {
+    position: absolute;
+    right: -80px;
+    top: -100px;
+    z-index: 100;
+    width: 180px;
+    height: 170px;
+    background: var(--bg-color);
+    border-radius: 50% 50% 50% 50%;
+    -webkit-transition: .5s ease-in-out;
+    transition: .5s ease-in-out;
+    box-shadow: 0 0 0 0 var(--bg-color), 0 0 0 0 var(--bg-color);
+    cursor: pointer;
+  
+    
+  }
+  
+  label .hamburger {
+    position: absolute;
+    top: 140px;
+    left: 40px;
+    width: 30px;
+    height: 2px;
+    background: var(--font-color);
+    display: block;
+    -webkit-transform-origin: center;
+    transform-origin: center;
+    -webkit-transition: .5s ease-in-out;
+    transition: .5s ease-in-out;
+  }
+  
+  label .hamburger:after, label .hamburger:before {
+    -webkit-transition: .5s ease-in-out;
+    transition: .5s ease-in-out;
+    content: "";
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: var(--font-color);
+  }
+  
+  label .hamburger:before { top: -10px; }
+  
+  label .hamburger:after { bottom: -10px; }
+  
+  label input { display: none; }
+  
+  label input:checked + .menu {
+    box-shadow: 0 0 0 100vw var(--bg-color), 0 0 0 100vh var(--bg-color);
+    border-radius: 10;
+    
+  }
+  
+  label input:checked + .menu .hamburger {
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+  
+    
+  }
+  
+  label input:checked + .menu .hamburger:after {
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+    bottom: 0;
+    
+  }
+  
+  label input:checked + .menu .hamburger:before {
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+    top: 0;
+    
+  }
+  
+  label input:checked + .menu + ul { 
+    opacity: 1; 
+    pointer-events: auto;
+  }
+  
+  label ul {
+    z-index: 200;
+    position: absolute;
+    top: 50%;
+    left: 47vw;
+    text-align: center;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    -webkit-transition: .25s 1s ease-in-out;
+    transition: .25s 0.25s ease-in-out;
+    list-style-type: none;
+    pointer-events: none;
+  
+  }
+  
+  label a {
+    margin-bottom: 1em;
+    display: block;
+    color: var(--font-color);
+    text-decoration: none;
+    font-family: "PCap Terminal";
+    font-size: var(--p);
+    letter-spacing: 0.8px;
+  
+    
+  }
+  
+  label a:hover {
+    color: #0037FF;
+  }
+  
+
 .maincontent h1 {
     background: linear-gradient(to right, #0037FF, #7EA2FF);
     -webkit-background-clip: text;
@@ -205,20 +318,21 @@ input:checked+.slider:before {
 }
 
 .button {
-    position: absolute;
     top: 15px;
     right: 20px;
     font-family: var(--ff);
-    font: var(--small);
+    font: var(--p);
     color: var(--font-color);
     background-color: var(--bg-color);
-    border: 3px solid var(--font-color);
+    border: 0px solid var(--font-color);
     border-radius: 5px;
-    letter-spacing: 1px;
+    letter-spacing: 0.8px;
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 2.5px;
     padding-bottom: 2.5px;
+    justify-content: center;
+
 
 }
 
