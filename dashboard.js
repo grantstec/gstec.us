@@ -188,9 +188,9 @@ function adjustPaddingBottom() {
 
         console.log('Found deadlinedates:', deadlinedates);
         console.log('Found deadlines:', deadlines); 
-
+        
         let maxHeight = 0;
-
+        
         deadlinedates.forEach(date => {
             const rect = date.getBoundingClientRect();
             maxHeight = Math.max(maxHeight, rect.height);
@@ -199,18 +199,19 @@ function adjustPaddingBottom() {
             const rect = deadline.getBoundingClientRect();
             maxHeight = Math.max(maxHeight, rect.height);
         });
-
+        
         console.log('Max height:', maxHeight); 
-
+        
         deadlinedates.forEach(date => {
             const rect = date.getBoundingClientRect();
             const heightDifference = maxHeight - rect.height;
-            deadline.style.paddingBottom = `${heightDifference + 5}px`;        });
+            date.style.paddingBottom = `${heightDifference + 5}px`; // Corrected variable name
+        });
         deadlines.forEach(deadline => {
             const rect = deadline.getBoundingClientRect();
             const heightDifference = maxHeight - rect.height;
             deadline.style.paddingBottom = `${heightDifference + 5}px`;
-            console.log('Adjusted padding for deadline:', deadline, 'Padding:', deadline.style.paddingTop); 
+            console.log('Adjusted padding for deadline:', deadline, 'Padding:', deadline.style.paddingBottom); // Corrected log statement
         });
     });
 }
