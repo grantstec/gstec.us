@@ -177,8 +177,13 @@ function adjustPaddingBottom() {
             const datePadding = (maxHeight - dateRect.height) / 2 + 5;
             const deadlinePadding = (maxHeight - deadlineRect.height) / 2 + 5;
 
-            dateElement.style.paddingBottom = `${datePadding * 2}px`;
-            deadlineElement.style.paddingBottom = `${deadlinePadding * 2}px`;
+            if (dateRect.height < deadlineRect.height) {
+                dateElement.style.paddingBottom = `${datePadding}px`;
+                deadlineElement.style.paddingBottom = '0px';
+            } else {
+                dateElement.style.paddingBottom = '0px';
+                deadlineElement.style.paddingBottom = `${deadlinePadding}px`;
+            }
 
             console.log(`Adjusted padding for date: ${dateElement.outerHTML} Padding: ${datePadding}px`);
             console.log(`Adjusted padding for deadline: ${deadlineElement.outerHTML} Padding: ${deadlinePadding}px`);
