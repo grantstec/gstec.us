@@ -71,7 +71,9 @@ function updateDeadlines(deadlines) {
         deadlineContainer.appendChild(deadlineBlock);
     });
 
-    adjustPaddingBottom();
+    setTimeout(() => {
+        adjustPaddingBottom();
+    }, 1000);
 }
 
 function adjustPaddingBottom() {
