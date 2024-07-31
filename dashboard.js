@@ -70,7 +70,53 @@ function updateDeadlines(deadlines) {
         deadlineBlock.appendChild(deadlineInfo);
         deadlineContainer.appendChild(deadlineBlock);
     });
+
+    adjustPaddingBottom();
 }
+
+function adjustPaddingBottom() {
+    console.log('adjustPaddingBottom function called'); // Log function call
+    const deadlineBlocks = document.querySelectorAll('.deadlineblock');
+    console.log('Found deadline blocks:', deadlineBlocks); // Log found elements
+
+    deadlineBlocks.forEach(block => {
+        const deadlinedates = block.querySelectorAll('.deadlinedate');
+        const deadlines = block.querySelectorAll('.deadline');
+
+        console.log('Found deadlinedates:', deadlinedates);
+        console.log('Found deadlines:', deadlines); 
+        
+        let maxHeight = 0;
+        
+        deadlinedates.forEach(date => {
+            const rect = date.getBoundingClientRect();
+            maxHeight = Math.max(maxHeight, rect.height);
+        });
+        deadlines.forEach(deadline => {
+            const rect = deadline.getBoundingClientRect();
+            maxHeight = Math.max(maxHeight, rect.height);
+        });
+        
+        console.log('Max height:', maxHeight); 
+        
+        deadlinedates.forEach(date => {
+            const rect = date.getBoundingClientRect();
+            const heightDifference = maxHeight - rect.height;
+            date.style.paddingBottom = `${heightDifference + 5}px`; // Corrected variable name
+        });
+        deadlines.forEach(deadline => {
+            const rect = deadline.getBoundingClientRect();
+            const heightDifference = maxHeight - rect.height;
+            deadline.style.paddingBottom = `${heightDifference + 5}px`;
+            console.log('Adjusted padding for deadline:', deadline, 'Padding:', deadline.style.paddingBottom); // Corrected log statement
+        });
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    adjustPaddingBottom(); // Initial call after the content is loaded
+
+});
 
 
 
@@ -177,55 +223,3 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-let previousMaxHeight = 0;
-
-function adjustPaddingBottom() {
-    let maxHeight = 0;
-
-    deadlinedates.forEach(date => {
-        const rect = date.getBoundingClientRect();
-        maxHeight = Math.max(maxHeight, rect.height);
-    });
-    deadlines.forEach(deadline => {
-        const rect = deadline.getBoundingClientRect();
-        maxHeight = Math.max(maxHeight, rect.height);
-    });
-
-    console.log('Max height:', maxHeight);
-
-    // Only update padding if the new maxHeight is greater than the previousMaxHeight
-    if (maxHeight > previousMaxHeight) {
-        previousMaxHeight = maxHeight;
-
-        deadlinedates.forEach(date => {
-            const rect = date.getBoundingClientRect();
-            const heightDifference = maxHeight - rect.height;
-            date.style.paddingBottom = `${heightDifference + 5}px`;
-        });
-        deadlines.forEach(deadline => {
-            const rect = deadline.getBoundingClientRect();
-            const heightDifference = maxHeight - rect.height;
-            deadline.style.paddingBottom = `${heightDifference + 5}px`;
-            console.log('Adjusted padding for deadline:', deadline, 'Padding:', deadline.style.paddingBottom);
-        });
-    }
-}
-
-document.addEventListener('DOMContentLoaded', function () {
-    adjustPaddingBottom(); // Initial call after the content is loaded
-
-    // Set up a MutationObserver to watch for changes in the DOM
-    const observer = new MutationObserver(function (mutations) {
-        mutations.forEach(function (mutation) {
-            if (mutation.addedNodes.length) {
-                adjustPaddingBottom(); // Call the function when new nodes are added
-            }
-        });
-    });
-
-    // Start observing the document body for changes
-    observer.observe(document.body, {
-        childList: true,
-        subtree: true
-    });
-});
