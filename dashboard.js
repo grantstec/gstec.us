@@ -174,8 +174,8 @@ function adjustPaddingBottom() {
             const maxHeight = Math.max(dateRect.height, deadlineRect.height);
             console.log('Max height:', maxHeight);
 
-            const datePadding = (maxHeight - dateRect.height) / 2;
-            const deadlinePadding = (maxHeight - deadlineRect.height) / 2;
+            const datePadding = (maxHeight - dateRect.height) / 2 + 5;
+            const deadlinePadding = (maxHeight - deadlineRect.height) / 2 + 5;
 
             dateElement.style.paddingBottom = `${datePadding}px`;
             deadlineElement.style.paddingBottom = `${deadlinePadding}px`;
