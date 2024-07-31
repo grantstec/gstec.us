@@ -195,18 +195,8 @@ function adjustPaddingBottom() {
     });
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-    adjustPaddingBottom(); // prob not needed anymore but i dont wanna fuck it up
-
-});
 
 
-
-
-document.addEventListener('DOMContentLoaded', adjustPaddingBottom); //also prob not needed 
-
-
-document.addEventListener('DOMContentLoaded', adjustPaddingBottom);
 
 document.addEventListener('DOMContentLoaded', function () {
     const username = sessionStorage.getItem('username');
