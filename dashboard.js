@@ -177,43 +177,38 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
+let previousMaxHeight = 0;
+
 function adjustPaddingBottom() {
-    console.log('adjustPaddingBottom function called'); // Log function call
-    const deadlineBlocks = document.querySelectorAll('.deadlineblock');
-    console.log('Found deadline blocks:', deadlineBlocks); // Log found elements
+    let maxHeight = 0;
 
-    deadlineBlocks.forEach(block => {
-        const deadlinedates = block.querySelectorAll('.deadlinedate');
-        const deadlines = block.querySelectorAll('.deadline');
+    deadlinedates.forEach(date => {
+        const rect = date.getBoundingClientRect();
+        maxHeight = Math.max(maxHeight, rect.height);
+    });
+    deadlines.forEach(deadline => {
+        const rect = deadline.getBoundingClientRect();
+        maxHeight = Math.max(maxHeight, rect.height);
+    });
 
-        console.log('Found deadlinedates:', deadlinedates);
-        console.log('Found deadlines:', deadlines); 
-        
-        let maxHeight = 0;
-        
-        deadlinedates.forEach(date => {
-            const rect = date.getBoundingClientRect();
-            maxHeight = Math.max(maxHeight, rect.height);
-        });
-        deadlines.forEach(deadline => {
-            const rect = deadline.getBoundingClientRect();
-            maxHeight = Math.max(maxHeight, rect.height);
-        });
-        
-        console.log('Max height:', maxHeight); 
-        
+    console.log('Max height:', maxHeight);
+
+    // Only update padding if the new maxHeight is greater than the previousMaxHeight
+    if (maxHeight > previousMaxHeight) {
+        previousMaxHeight = maxHeight;
+
         deadlinedates.forEach(date => {
             const rect = date.getBoundingClientRect();
             const heightDifference = maxHeight - rect.height;
-            date.style.paddingBottom = `${heightDifference + 5}px`; // Corrected variable name
+            date.style.paddingBottom = `${heightDifference + 5}px`;
         });
         deadlines.forEach(deadline => {
             const rect = deadline.getBoundingClientRect();
             const heightDifference = maxHeight - rect.height;
             deadline.style.paddingBottom = `${heightDifference + 5}px`;
-            console.log('Adjusted padding for deadline:', deadline, 'Padding:', deadline.style.paddingBottom); // Corrected log statement
+            console.log('Adjusted padding for deadline:', deadline, 'Padding:', deadline.style.paddingBottom);
         });
-    });
+    }
 }
 
 document.addEventListener('DOMContentLoaded', function () {
