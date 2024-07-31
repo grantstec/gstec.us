@@ -193,23 +193,29 @@ function adjustPaddingBottom() {
 
         // Find the maximum height among deadlinedate and deadline elements
         deadlinedates.forEach(date => {
-            maxHeight = Math.max(maxHeight, date.offsetHeight);
+            const rect = date.getBoundingClientRect();
+            maxHeight = Math.max(maxHeight, rect.height);
         });
         deadlines.forEach(deadline => {
-            maxHeight = Math.max(maxHeight, deadline.offsetHeight);
+            const rect = deadline.getBoundingClientRect();
+            maxHeight = Math.max(maxHeight, rect.height);
         });
 
         console.log('Max height:', maxHeight); // Log max height
 
         // Adjust padding-bottom to make heights equal
         deadlinedates.forEach(date => {
-            const heightDifference = maxHeight - date.offsetHeight;
-            date.style.paddingTop = `${5 + heightDifference}px`;
+            const rect = date.getBoundingClientRect();
+            const heightDifference = maxHeight - rect.height;
+            console.log('Height difference:', heightDifference);
+            date.style.paddingBottom = `${heightDifference}px`;
             console.log('Adjusted padding for date:', date, 'Padding:', date.style.paddingTop); // Log padding adjustment
         });
         deadlines.forEach(deadline => {
-            const heightDifference = maxHeight - deadline.offsetHeight;
-            deadline.style.paddingTop = `${5 + heightDifference}px`;
+            const rect = deadline.getBoundingClientRect();
+            const heightDifference = maxHeight - rect.height;
+            console.log('Height difference:', heightDifference); // Log height difference
+            deadline.style.paddingBottom = `${heightDifference}px`;
             console.log('Adjusted padding for deadline:', deadline, 'Padding:', deadline.style.paddingTop); // Log padding adjustment
         });
     });

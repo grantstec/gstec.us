@@ -389,7 +389,8 @@ input:checked+.slider:before {
     padding-bottom: 5px;
     margin-right: 5px;
     width: 30%;
-    margin-left: px;
+    margin-bottom: 5px;
+
 
 }
 
@@ -400,7 +401,7 @@ input:checked+.slider:before {
     font-family: "PCap Terminal";
     position: relative;
     display: inline-flex;
-    justify-content: center;
+    justify-content: left;
     background-color: var(--font-color);
     border-radius: 10px;
     padding-left: 10px;
@@ -408,8 +409,8 @@ input:checked+.slider:before {
     padding-top: 5px;
     padding-bottom: 5px;
     margin-right: 10px;
-    margin-bottom: 5px;
     vertical-align: center;
+    margin-bottom: 5px;
 
 }
 
