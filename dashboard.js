@@ -73,7 +73,7 @@ function updateDeadlines(deadlines) {
 
     setTimeout(() => {
         adjustPaddingBottom();
-    }, 1000); //this took three hours
+    }, 1500); //this took three hours
 }
 
 //team deadline stuff
@@ -153,7 +153,7 @@ function updateTeamDeadlines(deadlines) {
     // Call adjustPaddingBottom after updating team deadlines
     setTimeout(() => {
         adjustPaddingBottom();
-    }, 1000); // Delay to ensure DOM updates are rendered
+    }, 1500); // Delay to ensure DOM updates are rendered
 }
 
 function adjustPaddingBottom() {
@@ -172,10 +172,12 @@ function adjustPaddingBottom() {
         
         deadlinedates.forEach(date => {
             const rect = date.getBoundingClientRect();
+            console.log('Date rect:', rect); // Log rect details
             maxHeight = Math.max(maxHeight, rect.height);
         });
         deadlines.forEach(deadline => {
             const rect = deadline.getBoundingClientRect();
+            console.log('Deadline rect:', rect); // Log rect details
             maxHeight = Math.max(maxHeight, rect.height);
         });
         
@@ -185,12 +187,13 @@ function adjustPaddingBottom() {
             const rect = date.getBoundingClientRect();
             const heightDifference = maxHeight - rect.height;
             date.style.paddingBottom = `${heightDifference + 5}px`; 
+            console.log('Adjusted padding for date:', date, 'Padding:', date.style.paddingBottom); // Log adjusted padding
         });
         deadlines.forEach(deadline => {
             const rect = deadline.getBoundingClientRect();
             const heightDifference = maxHeight - rect.height;
             deadline.style.paddingBottom = `${heightDifference + 5}px`;
-            console.log('Adjusted padding for deadline:', deadline, 'Padding:', deadline.style.paddingBottom); // Corrected log statement
+            console.log('Adjusted padding for deadline:', deadline, 'Padding:', deadline.style.paddingBottom); // Log adjusted padding
         });
     });
 }
