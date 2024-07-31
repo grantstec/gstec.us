@@ -205,12 +205,11 @@ function adjustPaddingBottom() {
         deadlinedates.forEach(date => {
             const rect = date.getBoundingClientRect();
             const heightDifference = maxHeight - rect.height;
-            date.style.paddingBottom = `${heightDifference}px`;
-        });
+            deadline.style.paddingBottom = `${heightDifference + 5}px`;        });
         deadlines.forEach(deadline => {
             const rect = deadline.getBoundingClientRect();
             const heightDifference = maxHeight - rect.height;
-            deadline.style.paddingBottom = `${heightDifference}px`;
+            deadline.style.paddingBottom = `${heightDifference + 5}px`;
             console.log('Adjusted padding for deadline:', deadline, 'Padding:', deadline.style.paddingTop); 
         });
     });
@@ -218,11 +217,15 @@ function adjustPaddingBottom() {
 
 document.addEventListener('DOMContentLoaded', function () {
     adjustPaddingBottom(); // Call the function after the content is loaded
+    let hasCheckedForChanges = false;
 
     setInterval(function () {
-        const deadlineBlocks = document.querySelectorAll('.deadlineblock');
-        if (deadlineBlocks.length > 0) {
-            adjustPaddingBottom(); // Call the function to check for new data in deadlineblock
+        if (!hasCheckedForChanges) {
+            const deadlineBlocks = document.querySelectorAll('.deadlineblock');
+            if (deadlineBlocks.length > 0) {
+                adjustPaddingBottom(); // Call the function to check for new data in deadlineblock
+            }
+            hasCheckedForChanges = true;
         }
-    }, 50); // Check every 5 seconds for new data
+    }, 5000); // Check every 5 seconds for new data
 });
