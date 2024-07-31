@@ -215,6 +215,9 @@ document.addEventListener('DOMContentLoaded', function () {
     } else {
         console.error('Username not found in sessionStorage');
     }
+
+    // Call fetchTeamDeadlines to fetch team deadlines
+    fetchTeamDeadlines();
 });
 
 function startCountdown() {
