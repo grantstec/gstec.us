@@ -528,3 +528,26 @@ input:checked+.slider:before {
 
 }
 
+.fa-solid.fa-plus {
+    position: sticky;
+    top: 140px;
+    justify-content: center;
+    display: flex;
+    margin: 0 auto;
+    width: fit-content; 
+}
+
+.fa-solid.fa-plus:hover {
+    color: var(--primary-color);
+    cursor: pointer;
+    animation: scale 1s ease-in-out forwards;
+}
+
+@keyframes scale {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.25);
+    }
+}
