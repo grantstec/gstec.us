@@ -111,13 +111,7 @@ function updateTeamDeadlines(deadlines) {
     const heading = document.createElement('h3');
     heading.textContent = 'TEAM DEADLINES';
     teamDeadlineContainer.appendChild(heading);
-    const plusIcon = document.createElement('i');
-    plusIcon.classList.add('fa-solid', 'fa-plus');
-    plusIcon.onclick = function() {
-        window.location.href = 'index.html';
-    };
 
-    teamDeadlineContainer.appendChild(plusIcon);
 
     if (deadlines.length === 0) {
         const noDeadlinesMessage = document.createElement('div');
