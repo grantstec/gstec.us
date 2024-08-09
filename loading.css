@@ -118,7 +118,7 @@ body {
 
 .fade-in {
     opacity: 1;
-    transition: opacity 0.25s ease-in;
+    transition: opacity 1s ease-in;
 }
 
 
@@ -449,7 +449,7 @@ input:checked+.slider:before {
     margin-bottom: 3px;
 }
 
-.edit{
+.editbutton{
     right: 10px;
     letter-spacing: 0.75px;
     position: absolute;
@@ -464,7 +464,27 @@ input:checked+.slider:before {
     box-shadow: 10px;
 }
 
-.edit:hover{
+.editbutton:hover{
+    color: var(--primary-color);
+    animation: scale 0.25s ease-in-out forwards;
+}
+
+.savebutton{
+    right: 10px;
+    letter-spacing: 0.75px;
+    position: absolute;
+    font: var(--small);
+    display: inline;
+    margin-bottom: 3px;
+    margin-top: 3px;
+    background-color: var(--bg-color);
+    border-radius: 10px;
+    border-style: none;
+    color: var(--font-color);
+    box-shadow: 10px;
+}
+
+.savebutton:hover{
     color: var(--primary-color);
     animation: scale 0.25s ease-in-out forwards;
 }
