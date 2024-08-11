@@ -13,7 +13,7 @@ async function fetchDeadlines(username) {
                 updateDeadlines(jsonResponse.results);
             } else {
                 console.error('No deadlines found for the user.');
-                updateDeadlines([]); // Clear existing content if no deadlines are found
+                updateDeadlines([]); 
             }
         } catch (jsonError) {
             console.error('Error parsing JSON:', jsonError);
@@ -26,12 +26,9 @@ async function fetchDeadlines(username) {
 
 function updateDeadlines(deadlines) {
     console.log('Updating deadlines with:', deadlines); 
-    const deadlineContainer = document.querySelector('.yourdeadlines');
+    const deadlineContainer = document.querySelector('.teamdeadlines .deadline-container');
     deadlineContainer.innerHTML = ''; 
 
-    const heading = document.createElement('h3');
-    heading.textContent = 'YOUR DEADLINES';
-    deadlineContainer.appendChild(heading);
 
     if (deadlines.length === 0) {
         const noDeadlinesMessage = document.createElement('div');
@@ -40,10 +37,10 @@ function updateDeadlines(deadlines) {
         return;
     }
 
-    // Helper function to parse month-day strings into Date objects
+    
     function parseDate(dateStr) {
         const [month, day] = dateStr.split(' ');
-        const monthIndex = new Date(Date.parse(month + " 1, 2023")).getMonth(); // Get month index
+        const monthIndex = new Date(Date.parse(month + " 1, 2023")).getMonth(); 
         return new Date(new Date().getFullYear(), monthIndex, parseInt(day));
     }
 
@@ -60,7 +57,7 @@ function updateDeadlines(deadlines) {
 
         const deadlineDate = document.createElement('div');
         deadlineDate.classList.add('deadlinedate');
-        deadlineDate.textContent = deadline.user_deadline_date.toUpperCase(); // reminder convert to uppercase
+        deadlineDate.textContent = deadline.user_deadline_date.toUpperCase(); 
 
         const deadlineInfo = document.createElement('div');
         deadlineInfo.classList.add('deadline');
@@ -73,7 +70,7 @@ function updateDeadlines(deadlines) {
 
     setTimeout(() => {
         adjustPaddingBottom();
-    }, 1500); //this took three hours
+    }, 1500); 
 }
 
 //team deadline stuff
@@ -92,7 +89,7 @@ async function fetchTeamDeadlines() {
                 updateTeamDeadlines(jsonResponse.results);
             } else {
                 console.error('No team deadlines found.');
-                updateTeamDeadlines([]); // Clear existing content if no deadlines are found
+                updateTeamDeadlines([]);
             }
         } catch (jsonError) {
             console.error('Error parsing Team JSON:', jsonError);
@@ -105,12 +102,9 @@ async function fetchTeamDeadlines() {
 
 function updateTeamDeadlines(deadlines) {
     console.log('Updating team deadlines with:', deadlines); 
-    const teamDeadlineContainer = document.querySelector('.teamdeadlines');
+    const teamDeadlineContainer = document.querySelector('.yourdeadlines .deadline-container');
     teamDeadlineContainer.innerHTML = ''; 
 
-    const heading = document.createElement('h3');
-    heading.textContent = 'TEAM DEADLINES';
-    teamDeadlineContainer.appendChild(heading);
 
 
     if (deadlines.length === 0) {
