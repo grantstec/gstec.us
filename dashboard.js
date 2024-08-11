@@ -205,6 +205,25 @@ document.addEventListener('DOMContentLoaded', function () {
     fetchTeamDeadlines();
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+    const saveButtons = document.querySelectorAll('.savebutton');
+    const username = sessionStorage.getItem('username');
+
+    saveButtons.forEach(button => {
+        button.addEventListener('click', async function () {
+            console.log('Save button clicked');
+            if (username) {
+                fetchDeadlines(username);
+            } else {
+                console.error('Username not found in sessionStorage');
+            }
+            fetchTeamDeadlines();
+        });
+    });
+});
+
+
+
 function startCountdown() {
     const countdownElement = document.getElementById('countdown-timer');
     if (!countdownElement) {
