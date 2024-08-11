@@ -26,7 +26,7 @@ async function fetchDeadlines(username) {
 
 function updateDeadlines(deadlines) {
     console.log('Updating deadlines with:', deadlines); 
-    const deadlineContainer = document.querySelector('.teamdeadlines .deadline-container');
+    const deadlineContainer = document.querySelector('.yourdeadlines .deadline-container');
     deadlineContainer.innerHTML = ''; 
 
 
@@ -102,7 +102,7 @@ async function fetchTeamDeadlines() {
 
 function updateTeamDeadlines(deadlines) {
     console.log('Updating team deadlines with:', deadlines); 
-    const teamDeadlineContainer = document.querySelector('.yourdeadlines .deadline-container');
+    const teamDeadlineContainer = document.querySelector('.teamdeadlines .deadline-container');
     teamDeadlineContainer.innerHTML = ''; 
 
 
