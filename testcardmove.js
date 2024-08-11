@@ -1,42 +1,25 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
     const editButtons = document.querySelectorAll('.editbutton');
     const saveButtons = document.querySelectorAll('.savebutton');
-    const views = document.querySelectorAll('#view');
-    const editScreens = document.querySelectorAll('#editscreen');
-
-    // Ensure view sections are displayed by default
-    views.forEach(view => {
-        view.style.display = 'block';
-    });
-
-    // Ensure edit screens are hidden by default
-    editScreens.forEach(editScreen => {
-        editScreen.style.display = 'none';
-    });
-
-    console.log('Edit buttons:', editButtons);
-    console.log('Save buttons:', saveButtons);
 
     editButtons.forEach(button => {
         button.addEventListener('click', function () {
-            console.log('Edit button clicked');
             const parent = this.closest('.yourdeadlines, .teamdeadlines');
             const view = parent.querySelector('#view');
             const editScreen = parent.querySelector('#editscreen');
 
-            // Add fade-out class to view and fade-in class to editScreen
-            view.classList.add('fade-out');
-            editScreen.classList.add('fade-in');
+            view.classList.remove('active');
+            editScreen.classList.add('active');
 
             // Use setTimeout to wait for the fade-out transition to complete
-            setTimeout(() => {
-                view.style.display = 'none';
-                editScreen.style.display = 'block';
-                view.classList.remove('fade-out');
-            }, 500); // Match the duration of the CSS transition
-        });
+        //     setTimeout(() => {
+        //         view.style.display = 'none';
+        //         editScreen.style.display = 'block';
+        //         view.classList.remove('fade-out');
+        //         editScreen.classList.remove('fade-in');
+        //     }, 500); // Match the duration of the CSS transition
+            });
     });
-
     saveButtons.forEach(button => {
         button.addEventListener('click', async function () {
             console.log('Save button clicked');
@@ -44,10 +27,26 @@ document.addEventListener('DOMContentLoaded', function () {
             const view = parent.querySelector('#view');
             const editScreen = parent.querySelector('#editscreen');
             const inputs = editScreen.querySelectorAll('input');
-            const data = {};
+            const data = {
+                username: '',
+                deadlines: []
+            };
 
+            // Determine if it's a team deadline or user deadline
+            if (parent.classList.contains('teamdeadlines')) {
+                data.username = 'team_deadline';
+            } else {
+                data.username = sessionStorage.getItem('username');
+            }
+
+            // Collect deadlines data
             inputs.forEach(input => {
-                data[input.className] = input.value;
+                if (input.classList.contains('deadlinedate')) {
+                    data.deadlines.push({
+                        date: input.value,
+                        info: input.nextElementSibling.value
+                    });
+                }
             });
 
             try {
@@ -61,42 +60,16 @@ document.addEventListener('DOMContentLoaded', function () {
                     alert('Deadlines saved successfully');
 
                     // Add fade-out class to editScreen and fade-in class to view
-                    editScreen.classList.add('fade-out');
-                    view.classList.add('fade-in');
-
-                    // Use setTimeout to wait for the fade-out transition to complete
-                    setTimeout(() => {
-                        editScreen.style.display = 'none';
-                        view.style.display = 'block';
-                        editScreen.classList.remove('fade-out');
-                    }, 500); // Match the duration of the CSS transition
+                    editScreen.classList.remove('active');
+                    view.classList.add('active');
                 } else {
-                    alert('Error saving deadlines');
-                    
-                    // Add fade-out class to editScreen and fade-in class to view
-                    editScreen.classList.add('fade-out');
-                    view.classList.add('fade-in');
-
-                    // Use setTimeout to wait for the fade-out transition to complete
-                    setTimeout(() => {
-                        editScreen.style.display = 'none';
-                        view.style.display = 'block';
-                        editScreen.classList.remove('fade-out');
-                    }, 500); // Match the duration of the CSS transition
+                    alert('Failed to save deadlines');
+                    editScreen.classList.add('active');
+                    view.classList.remove('active');
                 }
             } catch (error) {
-                alert('Error saving deadlines: ' + error.message);
-                
-                    // Add fade-out class to editScreen and fade-in class to view
-                    editScreen.classList.add('fade-out');
-                    view.classList.add('fade-in');
-
-                    // Use setTimeout to wait for the fade-out transition to complete
-                    setTimeout(() => {
-                        editScreen.style.display = 'none';
-                        view.style.display = 'block';
-                        editScreen.classList.remove('fade-out');
-                    }, 500); // Match the duration of the CSS transition
+                console.error('Error saving deadlines:', error);
+                alert('An error occurred while saving deadlines');
             }
         });
     });

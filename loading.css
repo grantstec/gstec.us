@@ -113,12 +113,14 @@ body {
 /* Add these styles for fade-in and fade-out effects */
 .fade-out {
     opacity: 0;
-    transition: opacity 1s ease-out;
+    transition: opacity 0.5s ease-out;
+    visibility: hidden;
 }
 
 .fade-in {
     opacity: 1;
-    transition: opacity 1s ease-in;
+    transition: opacity 0.5s ease-in;
+    visibility: visible;
 }
 
 
@@ -158,13 +160,13 @@ label .menu {
     display: block;
     -webkit-transform-origin: center;
     transform-origin: center;
-    -webkit-transition: .5s ease-in-out;
-    transition: .5s ease-in-out;
+    -webkit-transition: .25s ease-in-out;
+    transition: .25s ease-in-out;
   }
   
   label .hamburger:after, label .hamburger:before {
-    -webkit-transition: .5s ease-in-out;
-    transition: .5s ease-in-out;
+    -webkit-transition: .25s ease-in-out;
+    transition: .25s ease-in-out;
     content: "";
     position: absolute;
     display: block;
@@ -323,7 +325,7 @@ input:checked+.slider:before {
     font-family: var(--ff);
     font: var(--p);
     color: var(--font-color);
-    background-color: var(--bg-color);
+    background-color: transparent;
     border: 0px solid var(--font-color);
     border-radius: 5px;
     letter-spacing: 0.8px;
@@ -332,9 +334,8 @@ input:checked+.slider:before {
     padding-top: 2.5px;
     padding-bottom: 2.5px;
     justify-content: center;
-
-
 }
+
 
 .button:hover {
     border-color: var(--primary-color);
@@ -434,7 +435,32 @@ input:checked+.slider:before {
     letter-spacing: 2px;
     text-decoration: none;
     overflow-y: auto;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     
+    
+}
+
+.teamdeadlines-content{
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out, visibility 2s ease-in-out;
+
+}
+.teamdeadlines-content.active{
+    visibility: visible;
+    opacity: 1;
+}
+
+.yourdeadlines-content{
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+
+}
+
+.yourdeadlines-content.active{
+    visibility: visible;
+    opacity: 1;
 }
 
 .teamdeadlines::-webkit-scrollbar {
@@ -456,12 +482,14 @@ input:checked+.slider:before {
     font: var(--small);
     display: inline;
     margin-bottom: 3px;
-    margin-top: 3px;
+    margin-top: 5px;
     background-color: var(--bg-color);
     border-radius: 10px;
     border-style: none;
     color: var(--font-color);
     box-shadow: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
 }
 
 .editbutton:hover{
@@ -476,12 +504,14 @@ input:checked+.slider:before {
     font: var(--small);
     display: inline;
     margin-bottom: 3px;
-    margin-top: 3px;
+    margin-top: 5px;
     background-color: var(--bg-color);
     border-radius: 10px;
     border-style: none;
     color: var(--font-color);
     box-shadow: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
 }
 
 .savebutton:hover{
@@ -512,6 +542,9 @@ input:checked+.slider:before {
     letter-spacing: 2px;
     text-decoration: none;
     overflow-y: auto;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+
     
 }
 
